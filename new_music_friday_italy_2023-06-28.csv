@@ -1,0 +1,91 @@
+id,name,album,uscita,artista,collaboratori,generi,popularity,key,bpm,energy,danceability,happiness,loudness,acousticness,instrumentalness,liveness,mode,speechiness,time_signature,valence,canzoneArtistaPreferito,canzoneSimileArtistaPreferito,canzoneSimileGenerePreferito,GenerePreferito,artistaPreferito,artistaPreferitoCoinvolto
+0cefXmvbKCLgPnSoWqclfz,"BON_TON_(feat._Lazza,_BLANCO,_Sfera_Ebbasta_&_Michelangelo)","BON_TON_(feat._Lazza,_BLANCO,_Sfera_Ebbasta_&_Michelangelo)",2023-06-22,Drillionaire,"['Lazza', 'BLANCO', 'Sfera_Ebbasta', 'Michelangelo']",[],75,11,130,0.73,0.64,0.64,-7.8,0.09,0.0,0.71,1,0.041,4,0.644,0.0,0.0,0.0,0.0,0.0,0.0
+01Lhwz9MYE6hu58oLQjOxh,Un_Altro_Mondo_(con_Tananai_&_Marracash),Un_Altro_Mondo_(con_Tananai_&_Marracash),2023-06-21,Merk_&_Kremont,"['Tananai', 'Marracash']","['dutch house', 'electro house', 'progressive electro house', 'sky room']",66,8,136,0.91,0.58,0.33,-3.45,0.19,0.0,0.09,1,0.088,4,0.326,0.0,0.0,0.0,0.0,0.0,0.0
+7kvQDzIegURcWHLC0fZfrQ,Ancora,Ancora,2023-06-21,Rhove,[],"['italian hip hop', 'trap italiana']",66,9,138,0.7,0.74,0.58,-8.16,0.46,0.0,0.16,1,0.08,4,0.583,0.0,0.0,0.0,1.0,0.0,0.0
+741UUVE2kuITl0c6zuqqbO,Barbie_World_(with_Aqua)_[From_Barbie_The_Album],Barbie_World_(with_Aqua)_[From_Barbie_The_Album],2023-06-23,Nicki_Minaj,"['Ice_Spice', 'Aqua']","['hip pop', 'pop', 'queens hip hop', 'rap']",82,0,144,0.58,0.77,0.75,-8.39,0.52,0.0,0.23,1,0.247,4,0.753,0.0,0.0,0.0,1.0,0.0,0.0
+4bPsiRqWPFPgLiPQR7jNo4,A_Lesser_Man,The_Idol_Episode_3_(Music_from_the_HBO_Original_Series),2023-06-19,The_Weeknd,[],"['canadian contemporary r&b', 'canadian pop', 'pop']",76,9,140,0.53,0.5,0.16,-8.51,0.01,0.001,0.32,0,0.033,4,0.161,0.0,0.0,0.0,1.0,0.0,0.0
+4f0i8ligJspqXf8qeAV1sS,Make_My_Day_(with_David_Guetta),COI,2023-06-23,Coi_Leray,['David_Guetta'],"['new jersey underground rap', 'trap queen']",67,10,110,0.69,0.8,0.57,-7.15,0.06,0.0,0.1,0,0.251,4,0.567,0.0,0.0,0.0,0.0,0.0,0.0
+3vdJE5XWVax2kVs6OTJzWM,BELLA,BELLA,2023-06-23,Neima_Ezza,['Dystopic'],"['italian hip hop', 'trap italiana']",59,9,122,0.65,0.6,0.77,-7.64,0.04,0.0,0.11,0,0.056,4,0.765,0.0,0.0,0.0,1.0,0.0,0.0
+3j0MqTxm02MzOOPsI3EySu,Canzone_d_estate,Opera_Futura,2023-06-23,Levante,[],"['italian adult pop', 'italian pop', 'turin indie']",51,9,116,0.79,0.66,0.83,-4.21,0.02,0.0,0.25,1,0.038,4,0.828,0.0,0.0,0.0,1.0,0.0,0.0
+5lD27Apjkk7ywgklSgqA2R,Sole_nel_blocco,JONES,2023-06-23,Vegas_Jones,[],['italian hip hop'],55,0,80,0.58,0.73,0.32,-8.07,0.08,0.0,0.11,0,0.053,4,0.316,0.0,0.0,0.0,1.0,0.0,1.0
+2NFadq6pUeiVEihLvUlOSr,"Rauw_Alejandro:_Bzrp_Music_Sessions,_Vol._56","Rauw_Alejandro:_Bzrp_Music_Sessions,_Vol._56",2023-06-21,Bizarrap,['Rauw_Alejandro'],"['argentine hip hop', 'pop venezolano', 'trap argentino', 'trap latino', 'urbano latino']",87,11,128,0.65,0.78,0.59,-3.63,0.1,0.0,0.26,1,0.049,4,0.592,0.0,0.0,0.0,0.0,0.0,0.0
+0RKR9cd6tqMSJmbNVBQsuS,King_of_Hearts,Feed_The_Beast,2023-06-23,Kim_Petras,[],"['alt z', 'pop', 'transpop']",71,7,133,0.83,0.68,0.8,-4.57,0.02,0.001,0.18,0,0.076,4,0.797,0.0,0.0,0.0,1.0,0.0,0.0
+4EmH2iRucAgCOnhuJRotUi,Drifting,Drifting,2023-06-22,Tiësto,[],"['big room', 'brostep', 'dutch edm', 'edm', 'house', 'pop dance', 'slap house', 'trance']",71,9,130,0.95,0.62,0.38,-4.87,0.07,0.585,0.16,0,0.039,4,0.376,0.0,0.0,0.0,0.0,0.0,0.0
+1aAE9RmUjVWacJjOEIL7aK,Maledetto_Mare,Maledetto_Mare,2023-06-23,Federico_Rossi,[],['italian pop'],52,8,156,0.88,0.54,0.57,-4.04,0.44,0.0,0.08,0,0.065,4,0.572,0.0,0.0,0.0,1.0,0.0,0.0
+74yqsS2q0kYMopauE4D0Mi,TROPPO_CHIC_(Dragostea_Din_Tei),TROPPO_CHIC_(Dragostea_Din_Tei),2023-06-23,Caffellatte,['Haiducii'],['r&b italiano'],48,3,130,0.82,0.66,0.52,-5.25,0.02,0.0,0.19,1,0.163,4,0.522,0.0,0.0,0.0,0.0,0.0,0.0
+6jmuXOufAc0Iybgv9GOQTU,Santa_subito_(feat._Asteria),Santa_subito_(feat._Asteria),2023-06-23,chiamamifaro,['Asteria'],[],48,0,116,0.9,0.72,0.67,-3.82,0.14,0.0,0.21,1,0.053,4,0.673,0.0,0.0,0.0,0.0,0.0,0.0
+0nVpE03Iv9uioPSomEN5v0,Funk_Rave,Funk_Rave,2023-06-23,Anitta,[],"['funk pop', 'funk rj', 'pagode baiano', 'pop', 'pop nacional']",78,11,135,0.8,0.88,0.71,-4.83,0.15,0.001,0.07,0,0.093,4,0.706,0.0,0.0,0.0,1.0,0.0,0.0
+6mlht8uraBsyvWMLMVaU2G,Run,The_Good_Witch,2023-06-23,Maisie_Peters,[],"['alt z', 'uk pop']",65,1,164,0.84,0.66,0.47,-5.5,0.23,0.0,0.18,1,0.173,4,0.466,0.0,0.0,0.0,0.0,0.0,0.0
+3iXH8nRdc945PO0GlbOroA,Sandman,Sandman,2023-06-23,Tai_Verdes,[],"['modern indie pop', 'singer-songwriter pop']",61,9,126,0.64,0.88,0.96,-7.95,0.04,0.0,0.34,0,0.035,4,0.961,0.0,0.0,0.0,0.0,0.0,0.0
+65leXqfkdViSssEVN23uYL,Mama_s_Boy,Mama_s_Boy,2023-06-23,Dominic_Fike,[],"['alternative pop rock', 'pov: indie']",65,9,79,0.35,0.81,0.6,-7.55,0.15,0.713,0.19,1,0.032,4,0.602,0.0,0.0,0.0,0.0,0.0,0.0
+0u4McpLubDZh1DwT9rtpNr,Carrà,Carrà,2023-06-23,Gio_Evan,[],"['italian indie pop', 'italian pop']",44,6,120,0.66,0.78,0.87,-6.54,0.43,0.0,0.07,1,0.081,4,0.866,0.0,0.0,0.0,1.0,0.0,0.0
+0zbO6cDFBa0JJblfyiTxgc,Curaçao,Curaçao,2023-06-23,Epoque,[],[],39,1,92,0.7,0.73,0.51,-5.49,0.0,0.0,0.09,1,0.052,4,0.513,0.0,0.0,0.0,0.0,0.0,0.0
+2WwS4XZZCg56o3ywscBslY,Borotalco,Borotalco,2023-06-23,Fudasca,"['Memento', 'Assurditè']","['sad lo-fi', 'sad rap']",40,10,82,0.76,0.65,0.85,-6.05,0.21,0.0,0.35,1,0.153,4,0.85,0.0,0.0,0.0,0.0,0.0,0.0
+1YR7Ed3gb7lTUiti5uJ3lB,DISPERATO,DISPERATO,2023-06-23,Tancredi,['EDONiCO'],['italian pop'],42,11,162,0.85,0.57,0.67,-8.01,0.0,0.0,0.23,1,0.042,4,0.67,0.0,0.0,0.0,1.0,0.0,0.0
+3SF3BnafrAXdF5OVKvQVps,La_tua_ragazza,La_tua_ragazza,2023-06-23,svegliaginevra,[],[],42,1,130,0.83,0.74,0.89,-4.12,0.1,0.0,0.34,0,0.03,4,0.89,0.0,0.0,0.0,0.0,0.0,0.0
+0qzAu5UedacpqgiCzdnGo4,Adriatico_(feat._chiello),Adriatico_(feat._chiello),2023-06-23,Colombre,['chiello'],"['italian alternative', 'italian indie pop']",44,4,79,0.73,0.57,0.95,-5.32,0.1,0.0,0.12,1,0.055,4,0.946,0.0,0.0,0.0,0.0,0.0,0.0
+1Qd2xhbAtS1MP5UW2BUfqj,Unknown_/_Nth,Unknown_/_Nth,2023-06-23,Hozier,[],"['irish singer-songwriter', 'modern rock', 'pop', 'pov: indie']",65,2,135,0.18,0.48,0.22,-9.98,0.74,0.0,0.09,1,0.036,4,0.216,0.0,0.0,0.0,1.0,0.0,0.0
+01QPvRIYC5QG9E3khE6P9M,Como_Yo_:(,Como_Yo_:(,2023-06-22,Marshmello,['Tiago_PZK'],"['brostep', 'edm', 'pop', 'progressive electro house']",72,1,150,0.58,0.75,0.67,-6.63,0.3,0.0,0.2,0,0.065,4,0.67,0.0,0.0,0.0,1.0,0.0,0.0
+7qLr3HMApUbyDkUvgIvHnB,Oh_U_Went_(feat._Drake),BUSINESS_IS_BUSINESS,2023-06-23,Young_Thug,['Drake'],"['atl hip hop', 'atl trap', 'gangster rap', 'melodic rap', 'rap', 'trap']",81,7,136,0.79,0.81,0.47,-5.88,0.05,0.0,0.08,0,0.236,4,0.465,0.0,0.0,0.0,1.0,0.0,0.0
+2uPyRKg62IcLFaGXXw0qEn,June_22nd,June_22nd,2023-06-22,Lil_Tjay,[],"['brooklyn drill', 'melodic rap', 'nyc rap', 'rap']",72,11,160,0.67,0.69,0.3,-6.2,0.12,0.0,0.71,0,0.327,4,0.303,0.0,0.0,0.0,1.0,0.0,0.0
+1LWlpRhu9jUkDK47xzUzu1,I_m_Not_Human,I_m_Not_Human_(feat._Lil_Uzi_Vert),2023-06-18,XXXTENTACION,['Lil_Uzi_Vert'],"['emo rap', 'miami hip hop']",74,9,114,0.35,0.51,0.06,-5.89,0.68,0.0,0.15,0,0.03,4,0.0565,1.0,0.0,0.0,1.0,1.0,0.0
+7g6FlLHxbVqMi1s7S8tDTp,Summer_Too_Hot,Summer_Too_Hot,2023-06-23,Chris_Brown,[],"['r&b', 'rap']",71,11,90,0.71,0.68,0.25,-6.64,0.15,0.0,0.37,0,0.057,4,0.254,0.0,0.0,0.0,1.0,0.0,0.0
+1PAKJ4G5tpNK0YYloB6dBv,Hagra,Hagra,2023-06-21,Nabi,[],[],58,4,105,0.64,0.88,0.58,-5.93,0.18,0.0,0.1,0,0.253,4,0.582,0.0,0.0,0.0,0.0,0.0,0.0
+1lhNMgrlg1cWF3Hbix6kku,Miracolo,Miracolo,2023-06-23,JUNIOR_CALLY,[],"['italian hip hop', 'italian pop']",42,6,133,0.77,0.69,0.84,-7.8,0.06,0.0,0.18,1,0.075,4,0.845,0.0,0.0,0.0,1.0,0.0,0.0
+5Dp8mj1sSEmPbp9za3BTwM,CASSA_FORTE,CASSA_FORTE,2023-06-23,Rizzo,['Greg_Willen'],['r&b italiano'],38,4,145,0.75,0.75,0.21,-5.48,0.1,0.07,0.1,0,0.162,4,0.215,0.0,0.0,0.0,0.0,0.0,0.0
+3ULSfbtXLBo4AehHye9ft9,Odyssey,Odyssey,2023-06-21,Beck,['Phoenix'],"['alternative rock', 'anti-folk', 'permanent wave', 'rock']",63,6,116,0.78,0.69,0.89,-3.74,0.07,0.0,0.32,1,0.038,4,0.89,0.0,0.0,0.0,1.0,0.0,0.0
+2qUNrUbCYoUE6MsOR3tTD1,kisses,kisses,2023-06-20,Slowdive,[],"['alternative rock', 'dream pop', 'nu gaze', 'reading indie', 'shoegaze']",64,11,128,0.8,0.57,0.47,-7.03,0.02,0.724,0.06,0,0.033,4,0.471,0.0,0.0,0.0,0.0,0.0,0.0
+696gO5dO34MHhmZlL9Mh19,True_Babe,True_Babe,2023-06-23,Gwen_Stefani,[],"['dance pop', 'pop']",62,9,118,0.81,0.61,0.41,-3.21,0.01,0.0,0.13,1,0.044,4,0.415,0.0,0.0,0.0,1.0,0.0,1.0
+6reL5LwIwHkDXcKff9ZbKV,Shy_Boy,Shy_Boy,2023-06-23,Carly_Rae_Jepsen,[],"['canadian pop', 'dance pop', 'pop']",62,8,103,0.86,0.7,0.91,-4.67,0.03,0.0,0.05,1,0.092,4,0.908,0.0,0.0,0.0,1.0,0.0,0.0
+6bcjN31l2M7nddJMKBJbDN,Bounce,Bounce,2023-06-20,Oliver_Tree,[],['alternative hip hop'],68,0,176,0.68,0.61,0.55,-4.93,0.03,0.0,0.47,0,0.057,4,0.548,0.0,0.0,0.0,0.0,0.0,0.0
+5nlJwV1jDu4hhQdY3YsG8W,17_anni_(PANICO),17_anni_(PANICO),2023-06-23,LINDA,[],[],33,2,105,0.71,0.59,0.49,-6.91,0.0,0.0,0.18,1,0.067,4,0.488,0.0,0.0,0.0,0.0,0.0,0.0
+1FVJXPTCvJRsr3H359CuRV,Mi_piace,Intro,2023-06-23,Lauryyn,[],[],27,8,83,0.34,0.46,0.08,-10.31,0.55,0.085,0.1,1,0.045,4,0.077,0.0,0.0,0.0,0.0,0.0,0.0
+5MIhOIJeFG5dLF9JrbL3KG,A_carte_scoperte,A_carte_scoperte,2023-06-23,Hanami,['kOkeshi'],[],31,1,136,0.46,0.71,0.61,-8.66,0.79,0.0,0.14,1,0.089,4,0.61,0.0,0.0,0.0,0.0,0.0,0.0
+5obuiGpCO8helTUfTuEFnK,Ti_volevo_dire,Ti_volevo_dire,2023-06-23,Sierra,[],"['italian pop', 'pop virale italiano']",42,9,115,0.61,0.7,0.59,-7.68,0.16,0.0,0.4,1,0.046,4,0.593,0.0,0.0,0.0,1.0,0.0,0.0
+49NAdUsRKTFK3Lz8k0yQNy,Toxic_Trait,Toxic_Trait,2023-06-22,Stormzy,['Fredo'],"['grime', 'uk hip hop']",72,10,140,0.79,0.76,0.86,-4.45,0.1,0.0,0.09,0,0.256,4,0.861,0.0,0.0,0.0,0.0,0.0,0.0
+2wfsZraYJMgUE8Rg6JuzqM,Move_It,Move_It,2023-06-23,Stefflon_Don,[],"['dancehall', 'dancehall queen', 'uk dancehall', 'uk hip hop']",55,11,121,0.69,0.85,0.3,-4.96,0.0,0.0,0.11,1,0.047,4,0.3,0.0,0.0,0.0,0.0,0.0,0.0
+5T1nY9ujQPDmOySQkfBZON,One_Like_You,Love_Lines,2023-06-21,LP,[],"['la pop', ""women's music""]",57,1,118,0.64,0.67,0.59,-8.0,0.12,0.004,0.16,1,0.032,4,0.59,0.0,0.0,0.0,0.0,0.0,0.0
+7DD5C8Dxq3acjvwDUCvuQQ,If_I_Were_You,Lay_Your_Hands_Upon_My_Heart,2023-06-23,Rosa_Linn,[],['alt z'],53,1,134,0.88,0.64,0.39,-5.46,0.01,0.004,0.38,0,0.032,4,0.393,0.0,0.0,0.0,0.0,0.0,0.0
+45hEUx8ywENLrB13nEfntt,rock_hudson,chemistry,2023-06-23,Kelly_Clarkson,[],"['dance pop', 'pop', 'talent show']",64,1,93,0.55,0.64,0.1,-7.61,0.01,0.0,0.12,1,0.035,4,0.101,0.0,0.0,0.0,1.0,0.0,0.0
+5Fl7K6enaM7IDuOkmdbdXg,SWINE,SWINE,2023-06-22,Demi_Lovato,[],"['pop', 'post-teen pop']",64,7,112,0.94,0.54,0.35,-2.03,0.0,0.0,0.07,1,0.276,1,0.352,0.0,0.0,0.0,1.0,0.0,0.0
+0RKugjsByHkSiwmJfukkHc,Team_Sport,Team_Sport,2023-06-23,salem_ilese,[],"['alt z', 'modern indie pop']",52,9,110,0.64,0.7,0.54,-4.24,0.03,0.0,0.31,1,0.03,4,0.536,0.0,0.0,0.0,0.0,0.0,0.0
+5eMoAisITn5iWhfZcSwDlc,NON_LA_VEDO_BENE,Ansia_Capitale_(Deluxe),2023-06-23,Management,['Lo_Stato_Sociale'],"['indie rock italiano', 'italian alternative', 'italian indie pop']",33,7,85,0.87,0.54,0.41,-4.23,0.02,0.0,0.15,1,0.048,4,0.409,0.0,0.0,0.0,0.0,0.0,0.0
+47v7cCqDp0CDNQFEN8RU3W,Che_peccato,Che_peccato,2023-06-23,Adelasia,[],['rome indie'],30,5,126,0.39,0.65,0.91,-11.63,0.11,0.0,0.33,1,0.031,4,0.909,0.0,0.0,0.0,0.0,0.0,0.0
+3kceCBwQ6yx1Z0U7mXMIdW,Fulmini,Fulmini,2023-06-23,Lucrezia,[],[],28,5,140,0.81,0.62,0.52,-5.47,0.09,0.0,0.2,1,0.055,4,0.515,0.0,0.0,0.0,0.0,0.0,0.0
+5hKnSsWTspcGHY7iciiVwT,Che_bella_che_sei,CRICCA,2023-06-23,Cricca,[],[],36,11,118,0.77,0.73,0.28,-5.9,0.12,0.0,0.34,0,0.087,4,0.285,0.0,0.0,0.0,0.0,0.0,0.0
+4I1OcJiqk279qLaI2OAecB,LUNA,GÉNESIS,2023-06-22,Peso_Pluma,['Junior_H'],"['corrido', 'nueva musica mexicana', 'sad sierreno']",84,9,128,0.63,0.75,0.79,-8.51,0.33,0.004,0.15,0,0.036,3,0.793,0.0,0.0,0.0,0.0,0.0,0.0
+0J9g1MMJDhyvOb3NWckHMm,Chulo_pt.2,Chulo_pt.2,2023-06-22,Bad_Gyal,"['Tokischa', 'Young_Miko']","['neoperreo', 'rap catala', 'rap latina', 'trap catala', 'urbano espanol']",75,5,97,0.88,0.85,0.56,-2.55,0.06,0.0,0.07,0,0.126,4,0.556,0.0,0.0,0.0,0.0,0.0,0.0
+7tEV3l3E7YM4tNkBe6UiVY,BANG_BANG!_(My_Neurodivergent_Anthem),BANG_BANG!_(My_Neurodivergent_Anthem),2023-06-22,Galantis,[],"['dance pop', 'edm', 'pop', 'pop dance']",60,6,124,0.74,0.74,0.59,-6.34,0.01,0.004,0.08,1,0.059,4,0.587,0.0,0.0,0.0,1.0,0.0,0.0
+4W7bfpXBXrH79dnWyJMkEX,If_Only_I_(feat._Bebe_Rexha),If_Only_I_(feat._Bebe_Rexha),2023-06-23,Loud_Luxury,"['Two_Friends', 'Bebe_Rexha']","['edm', 'pop dance']",67,0,120,0.73,0.69,0.69,-5.06,0.16,0.0,0.11,0,0.036,4,0.693,0.0,0.0,0.0,0.0,0.0,0.0
+34xBhUgjCTUxe1BuypLL0X,Now_Or_Never,Now_Or_Never,2023-06-23,Martin_Solveig,['Faouzia'],"['disco house', 'edm', 'electro house', 'filter house', 'house', 'pop dance', 'vocal house']",56,5,124,0.84,0.68,0.39,-5.11,0.02,0.0,0.31,1,0.062,4,0.39,0.0,0.0,0.0,0.0,0.0,0.0
+1wYTR3Hg5rBQcdfxGEdsx0,See_You_Again,See_You_Again,2023-06-23,The_Chainsmokers,"['ILLENIUM', 'Carlie_Hanson']","['electropop', 'pop']",73,4,144,0.5,0.48,0.21,-4.99,0.08,0.001,0.18,1,0.03,4,0.209,0.0,0.0,0.0,1.0,0.0,0.0
+6m1I0NzfmBFtH4G2Ba4yqG,La_spirale,La_spirale,2023-06-22,Rumo,[],[],31,9,123,0.57,0.84,0.79,-8.91,0.31,0.0,0.12,1,0.163,4,0.785,0.0,0.0,0.0,0.0,0.0,0.0
+7CxRXdumn7xcDKoCD1gmYk,Euro,Euro,2023-06-23,LJK,[],[],36,0,138,0.74,0.69,0.66,-4.98,0.01,0.0,0.08,0,0.057,4,0.661,0.0,0.0,0.0,0.0,0.0,0.0
+3NCRqWAMQf4WCOExuTlcCq,L_Anziano,FDM,2023-06-23,Rame,[],['italian hip hop'],40,8,97,0.6,0.65,0.33,-7.6,0.09,0.0,0.18,0,0.267,4,0.332,0.0,0.0,0.0,1.0,0.0,0.0
+6fB6AOA4Uz3AGNJNp22zAv,KANDINSKIJ,KANDINSKIJ,2023-06-23,Guesan,['Garelli'],['rap genovese'],30,10,160,0.61,0.43,0.39,-7.77,0.09,0.0,0.1,0,0.248,3,0.387,0.0,0.0,0.0,0.0,0.0,0.0
+4ejCsNXh66YasBUiwfBhDg,Mercy_(feat._Jacob_Lusk),Mercy_(feat._Jacob_Lusk),2023-06-23,The_Blessed_Madonna,"['Jacob_Lusk', 'Gabriels']",[],51,2,127,0.65,0.81,0.65,-6.05,0.01,0.0,0.71,0,0.094,4,0.652,0.0,0.0,0.0,0.0,0.0,0.0
+0cTDPvlLlj1T3WwUMzX6Uq,Sometimes,Sometimes,2023-06-22,Shermanology,[],['dutch house'],54,11,129,0.68,0.76,0.74,-6.78,0.08,0.0,0.19,1,0.136,4,0.745,0.0,0.0,0.0,0.0,0.0,0.0
+0lvOUYM0NzbzOI856TUHMM,I_ve_Been_In_Love,I_ve_Been_In_Love,2023-06-20,Jungle,['Channel_Tres'],"['indie soul', 'indietronica', 'uk contemporary r&b']",65,9,115,0.51,0.68,0.59,-9.5,0.42,0.002,0.43,0,0.067,4,0.588,0.0,0.0,0.0,0.0,0.0,0.0
+55q5FJy2MagUgplPVB0tjD,Blackbox_Life_Recorder_21f,Blackbox_Life_Recorder_21f,2023-06-21,Aphex_Twin,[],"['ambient', 'braindance', 'electronica', 'intelligent dance music', 'uk experimental electronic']",64,6,134,0.61,0.61,0.5,-14.23,0.09,0.904,0.08,1,0.051,4,0.496,0.0,0.0,0.0,0.0,0.0,0.0
+7zcmoCMq7ZlLL6GXnqfAJO,Hype,Hype,2023-06-23,I_Sentinelle,[],[],26,7,126,0.78,0.82,0.7,-4.94,0.08,0.0,0.09,0,0.353,4,0.703,0.0,0.0,0.0,0.0,0.0,0.0
+6OWU5j4cfIy7kMIgRr8luy,corri_corri,corri_corri,2023-06-23,Giuze,[],[],25,0,90,0.49,0.52,0.24,-8.77,0.29,0.0,0.47,1,0.05,4,0.236,0.0,0.0,0.0,0.0,0.0,0.0
+4Xsx3QEZkmbusIO25Ps2xb,Estate_nera,Estate_nera,2023-06-23,Réclame,[],[],23,9,122,0.67,0.76,0.79,-7.64,0.14,0.001,0.16,0,0.048,4,0.785,0.0,0.0,0.0,0.0,0.0,0.0
+5ZRtXf6Fsb4dzhRMpfTlLF,SCUSAMI_MARTINA,CASA_DI_FABIO,2023-06-22,COLLETTIVO,[],[],29,9,95,0.94,0.56,0.63,-3.58,0.01,0.0,0.32,0,0.064,4,0.627,0.0,0.0,0.0,0.0,0.0,0.0
+5f2aqqLjBh5xRt35Ji2xq7,Everything_Ends_(feat._Lizzy_McAlpine_and_Tiny_Habits),Everything_Ends_(feat._Lizzy_McAlpine_and_Tiny_Habits),2023-06-23,JP_Saxe,"['Lizzy_McAlpine', 'Tiny_Habits']","['alt z', 'canadian contemporary r&b', 'singer-songwriter pop']",62,4,94,0.33,0.54,0.41,-13.66,0.87,0.0,0.1,1,0.052,3,0.405,0.0,0.0,0.0,0.0,0.0,0.0
+1puAdUyTT8jhtguWD0Rkpr,Cold,Home,2023-06-23,Emma_Steinbakken,[],"['norwegian pop', 'scandipop']",47,9,82,0.24,0.36,0.29,-7.91,0.57,0.0,0.34,1,0.037,3,0.29,0.0,0.0,0.0,0.0,0.0,0.0
+2GQqCyDCD0Z7BL2otJkFRh,lie,lie,2023-06-23,Nessa_Barrett,[],['social media pop'],68,2,155,0.5,0.65,0.66,-8.26,0.32,0.0,0.13,1,0.04,4,0.656,0.0,0.0,0.0,0.0,0.0,0.0
+34V8glQTq23yuTs4YQp32R,CTRL_ALT_DEL,CTRL_ALT_DEL,2023-06-22,Sara_James,[],[],47,4,140,0.76,0.78,0.79,-5.84,0.04,0.0,0.09,0,0.071,4,0.794,0.0,0.0,0.0,0.0,0.0,0.0
+4pMZgwTL354QFT6xIDLDif,The_Wonder,The_Wonder,2023-06-19,Miles_Kane,[],"['baroque pop', 'british indie rock', 'garage rock', 'modern rock']",47,10,106,0.96,0.52,0.51,-3.73,0.0,0.0,0.16,0,0.106,4,0.505,0.0,0.0,0.0,0.0,0.0,0.0
+0UaqZbfeKuOdPxkyK7782l,But_Not_Kiss,But_Not_Kiss,2023-06-20,Faye_Webster,[],"['atlanta indie', 'indie pop']",63,4,82,0.51,0.7,0.15,-8.82,0.13,0.167,0.09,0,0.037,4,0.152,0.0,0.0,0.0,0.0,0.0,0.0
+6KzI6EM1QYyOq5oudPlcWT,Alive!,Alive!,2023-06-21,Bakar,[],['uk alternative hip hop'],63,8,97,0.74,0.75,0.58,-5.41,0.52,0.0,0.09,0,0.031,4,0.579,0.0,0.0,0.0,0.0,0.0,0.0
+5OSZz2DRRgpBbKGpfsdiKA,Memories_of_Another_Life,Time_and_Time_/_Memories_Of_Another_Life,2023-06-23,Bee_Bee_Sea,[],"['indie rock italiano', 'milan indie']",29,4,123,0.81,0.55,0.68,-7.5,0.09,0.002,0.15,0,0.03,4,0.675,0.0,0.0,0.0,0.0,0.0,0.0
+6tagbIoTWyXwbHXd1i25Iv,Elisir,Elisir,2023-06-23,Il_Mago_Del_Gelato,[],[],24,2,117,0.8,0.65,0.56,-8.05,0.11,0.188,0.12,0,0.038,4,0.559,0.0,0.0,0.0,0.0,0.0,0.0
+7CgdGLMx3sATCtahSbZXGK,Videocall,Videocall,2023-06-23,Vergo,[],[],33,9,90,0.65,0.65,0.43,-6.92,0.39,0.0,0.37,1,0.029,4,0.43,0.0,0.0,0.0,0.0,0.0,0.0
+0V30c6Psolo64enBtAz5TY,Un_cinema,Un_cinema,2023-06-22,Masamasa,[],['italian indie pop'],39,5,108,0.52,0.72,0.91,-8.96,0.57,0.0,0.12,1,0.066,4,0.913,0.0,0.0,0.0,0.0,0.0,0.0
+2LCfetXzZXRm0Naj8Y1p5K,Vertigini,I_Dolori_del_Giovane_Walter,2023-06-23,I_Dolori_del_Giovane_Walter,[],[],24,7,106,0.64,0.65,0.75,-7.4,0.46,0.0,0.14,0,0.031,4,0.749,0.0,0.0,0.0,1.0,0.0,0.0
+3TR1cdHrO7ZQ3uSlh8B7cX,COME_MAI,COME_MAI,2023-06-23,CEASEFIRE,"['headows', '19cola']",[],28,8,127,0.69,0.44,0.78,-5.8,0.15,0.0,0.12,0,0.218,1,0.775,0.0,0.0,0.0,0.0,0.0,0.0
+1n7ihTuG2hh7sjDVfkBXdt,44,TERANGA,2023-06-23,WadeLeVrai,['Parker_Wave'],[],28,6,140,0.61,0.74,0.8,-13.46,0.62,0.0,0.13,0,0.429,4,0.804,0.0,0.0,0.0,0.0,0.0,0.0
+3YNZBHzSKxfEvv801uyh72,BOLLICINE,BOLLICINE,2023-06-23,"Bravo,_Bravissimo",['ERMEN'],[],26,10,88,0.62,0.82,0.73,-6.05,0.12,0.0,0.29,0,0.138,4,0.729,0.0,0.0,0.0,0.0,0.0,0.0
+1WDHzOERHvCs9OrsRsVcQv,Pomegrigio,Pomegrigio,2023-06-22,SVD,[],[],24,1,150,0.59,0.52,0.65,-7.57,0.01,0.0,0.12,1,0.106,4,0.652,0.0,0.0,0.0,0.0,0.0,0.0
+0yr27xDQKCUQNIXcwCRR2V,semaforo,semaforo,2023-06-23,Den,[],['emo trap italiana'],22,1,75,0.61,0.68,0.62,-6.73,0.05,0.0,0.4,1,0.084,4,0.619,0.0,0.0,0.0,0.0,0.0,0.0
+2aR3bvNPBl3xTSufluLELw,Pazza_estate,Pazza_estate,2023-06-23,KENAI,[],[],25,8,115,0.6,0.92,0.7,-6.34,0.01,0.0,0.1,1,0.141,4,0.699,0.0,0.0,0.0,0.0,0.0,0.0
