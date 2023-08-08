@@ -1,5 +1,4 @@
 import pandas as pd
-from spotipy import SpotifyException
 from datetime import date
 
 def saveTracksIntoFile(sp, tracks, fileName, artists, albums, saveCSV=True):
