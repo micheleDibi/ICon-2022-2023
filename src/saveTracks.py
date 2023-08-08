@@ -1,4 +1,5 @@
 import pandas as pd
+from spotipy import SpotifyException
 from datetime import date
 
 def saveTracksIntoFile(sp, tracks, fileName, artists, albums, saveCSV=True):
@@ -8,12 +9,14 @@ def saveTracksIntoFile(sp, tracks, fileName, artists, albums, saveCSV=True):
         added_at = track['added_at']
         track = track['track']
         
-        print(track['name'])
+        print(f"nome brano: {track['name']}")
         
         features = sp.audio_features(track['id'])
         
         if features[0] != None:
-            artist_result = sp.artist(track['artists'][0]['id'])
+            
+            artist_result = sp.artist(track['artists'][0]['id'])                           
+        
             current_artist = {
                 'artist_id': track['artists'][0]['id'],
                 'artist_name': track['artists'][0]['name'],
@@ -22,7 +25,7 @@ def saveTracksIntoFile(sp, tracks, fileName, artists, albums, saveCSV=True):
                 'artist_popularity': artist_result['popularity']
             }            
             artists.append(current_artist)
-        
+            
             side_artists = []
             for side_artist in track['artists'][1:]:
                 artist_result = sp.artist(side_artist['id'])
@@ -35,7 +38,7 @@ def saveTracksIntoFile(sp, tracks, fileName, artists, albums, saveCSV=True):
                 }
                 artists.append(current_artist)
                 side_artists.append(side_artist['id'])
-            
+
             album_result = sp.album(track['album']['id'])
             current_album = {
                 'album_id': track['album']['id'],
