@@ -13,6 +13,49 @@ auth_manager = SpotifyOAuth(client_id=client_id, client_secret=client_secret,
 sp = spotipy.Spotify(auth_manager=auth_manager)
 
 def getTopUserArtists(sp):
-    results = sp.current_user_top_artists()
+    time_ranges = ['short_term', 'medium_term', 'long_term']
+
+    for tr in time_ranges:
+        print(tr)
+        current_artists = []
+        results = sp.current_user_top_artists(time_range=tr, limit=50)
+        tracks = results['items']
+
+        for track in tracks:
+            print(f"ID: {track['id']} - Nome Artista: {track['name']}")
+
+            current_artist = {
+                'id': track['id'],
+                'name': track['name']
+            }
+
+            current_artists.append(current_artist)
+
+        df_top_artists = pd.DataFrame(current_artists)
+        df_top_artists.to_csv(f"top_user_artists_{tr}_{date.today()}.csv", index=False)
 
 def getTopUserTracks(sp):
+    time_ranges = ['short_term', 'medium_term', 'long_term']
+
+    for tr in time_ranges:
+        print(tr)
+        current_tracks = []
+        results = sp.current_user_top_tracks(time_range=tr, limit=50)
+        tracks = results['items']
+
+        for track in tracks:
+            print(f"ID: {track['id']} - Nome brano: {track['name']}")
+
+            current_track = {
+                'id': track['id'],
+                'name': track['name']
+            }
+
+            current_tracks.append(current_track)
+
+        df_top_track = pd.DataFrame(current_tracks)
+        df_top_track.to_csv(f"top_user_track_{tr}_{date.today()}.csv", index=False)
+
+# getTopUserTracks(sp)
+
+# getTopUserArtists(sp)
