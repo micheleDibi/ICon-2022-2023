@@ -55,7 +55,3 @@ def getTopUserTracks(sp):
 
         df_top_track = pd.DataFrame(current_tracks)
         df_top_track.to_csv(f"top_user_track_{tr}_{date.today()}.csv", index=False)
-
-# getTopUserTracks(sp)
-
-# getTopUserArtists(sp)
