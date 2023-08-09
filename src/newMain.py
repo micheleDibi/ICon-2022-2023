@@ -10,8 +10,8 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 import matplotlib.pyplot as plt
 
-path_favorites_tracks = "brani_preferiti_2023-08-06.csv"
-path_saved_tracks = "brani_scaricati_2023-08-06.csv"
+path_favorites_tracks = "./datasets/brani_preferiti_2023-08-06.csv"
+path_saved_tracks = "./datasets/brani_scaricati_2023-08-06.csv"
 
 if exists(path_saved_tracks) and exists(path_favorites_tracks):
     df_favorites_tracks = pd.read_csv(path_favorites_tracks)
@@ -36,30 +36,28 @@ if exists(path_saved_tracks) and exists(path_favorites_tracks):
         'track_speechiness'
     ]
 
+    print(df_tracks[columns_to_scale].describe())
+
     scaler = StandardScaler()
     scaled_array = scaler.fit_transform(df_tracks[columns_to_scale])
     scaled_dataframe = pd.DataFrame(scaled_array, columns=columns_to_scale)
-    
-    df_tracks[columns_to_scale] = scaled_array
         
     plt.figure(figsize=(15, 6))
-    sns.heatmap(scaled_dataframe.corr(), annot=True)
-    plt.show()
+    sns.heatmap(df_tracks[columns_to_scale].corr(), annot=True)
+    plt.savefig("./img/heatmap.png")
     
     plt.figure(figsize=(15, 6))
-    sns.boxplot(data = scaled_dataframe, orient="h")
-    plt.show()
+    sns.boxplot(df_tracks[columns_to_scale], orient="h")
+    plt.savefig("./img/boxplot_before_scaling.png")
     
     plt.figure(figsize=(15, 6))
-    sns.pairplot(scaled_dataframe)
-    plt.show()
-    
-    plt.figure(figsize=(15, 6))
-    sns.boxplot(data = scaled_dataframe, orient="h")
-    plt.show()
+    sns.boxplot(scaled_dataframe, orient="h")
+    plt.savefig("./img/boxplot_after_scaling.png")
     
     # print(scaled_dataframe.describe())
-    
+
+    df_tracks[columns_to_scale] = scaled_array
+    """
     kmeans_model = KMeans(n_clusters=15, n_init=10, init='k-means++')
     kmeans_model.fit(df_tracks[columns_to_scale])
     # kmeans_model.fit(df_tracks[['track_bpm', 'track_time_signature', 'track_key']])
@@ -80,7 +78,7 @@ if exists(path_saved_tracks) and exists(path_favorites_tracks):
     # plt.scatter(centroids[:, 0], centroids[:, 1], c='red', s=100)
     # plt.show()
     
-    """
+    
     k_values = range(2, 101)
     
     elbow_scores = []
