@@ -45,7 +45,7 @@ def saveTracksIntoFile(sp, tracks, fileName, artists, albums, saveCSV=True):
                 'album_total_tracks': track['album']['total_tracks'],
                 'album_type': track['album']['album_type'],
                 'album_release_date': track['album']['release_date'],
-                'album_genres': album_result['genres'],
+                # 'album_genres': album_result['genres'],
                 'album_label': album_result['label'],
                 'album_popularity': album_result['popularity']
             }    
