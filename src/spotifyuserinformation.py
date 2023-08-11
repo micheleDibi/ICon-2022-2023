@@ -16,17 +16,16 @@ def getTopUserArtists(sp):
     time_ranges = ['short_term', 'medium_term', 'long_term']
 
     for tr in time_ranges:
-        print(tr)
         current_artists = []
         results = sp.current_user_top_artists(time_range=tr, limit=50)
-        tracks = results['items']
+        artists = results['items']
 
-        for track in tracks:
-            print(f"ID: {track['id']} - Nome Artista: {track['name']}")
+        for artist in artists:
+            # print(f"ID: {track['id']} - Nome Artista: {track['name']}")
 
             current_artist = {
-                'id': track['id'],
-                'name': track['name']
+                'id': artist['id'],
+                'name': artist['name']
             }
 
             current_artists.append(current_artist)
@@ -38,13 +37,12 @@ def getTopUserTracks(sp):
     time_ranges = ['short_term', 'medium_term', 'long_term']
 
     for tr in time_ranges:
-        print(tr)
         current_tracks = []
         results = sp.current_user_top_tracks(time_range=tr, limit=50)
         tracks = results['items']
 
         for track in tracks:
-            print(f"ID: {track['id']} - Nome brano: {track['name']}")
+            # print(f"ID: {track['id']} - Nome brano: {track['name']}")
 
             current_track = {
                 'id': track['id'],
