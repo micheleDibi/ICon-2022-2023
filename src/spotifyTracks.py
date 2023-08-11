@@ -1,10 +1,9 @@
 import spotipy
-import pandas as pd
-from spotipy.oauth2 import SpotifyOAuth
-import numpy as np
-from datetime import date
-
 import saveTracks
+import pandas as pd
+
+from spotipy.oauth2 import SpotifyOAuth
+from datetime import date
 
 client_id = "1572e8f11a55483ba6336cc98058160e"
 client_secret = "f6e304f95c1d41d1b3f9434437e88435"
@@ -40,6 +39,16 @@ playlist_IDs = [
     "37i9dQZF1DX0ckkFHFOpuK", # in tendenza
     "37i9dQZEVXbIQnj7RRhdSX", # Top 50 Italia
     "37i9dQZF1DX4JAvHpjipBk", # New Music Friday
+    "37i9dQZF1DXcBWIGoYBM5M", # Today's Top Hits
+    "37i9dQZEVXbMDoHDwVN2tF", # Top 50 Globale
+    "37i9dQZF1DX0XUsuxWHRQd", # RapCaviar
+    "37i9dQZF1DX10zKzsJ2jva", # Viva Latino
+    "37i9dQZF1DWY7IeIP1cdjF", # Baila Reggaeton
+    "37i9dQZF1DWXRqgorJj26U", # Rock Classics
+    "37i9dQZF1DWWMOmoXKqHTD", # Songs to Sings in the Car
+    "37i9dQZF1DX4o1oenSJRJd", # All Out 2000s
+    "37i9dQZF1DX4UtSsGT1Sbe", # All Out 80s
+    "37i9dQZF1DX76Wlfdnj7AP", # Beast Mode
     ]
 
 for playlist_id in playlist_IDs:
@@ -59,3 +68,5 @@ df_albums.to_csv(f"albums_{date.today()}.csv", index=False)
 df_artists = pd.DataFrame(artists)
 df_artists = df_artists.drop_duplicates(subset="artist_id")
 df_artists.to_csv(f"artists_{date.today()}.csv", index=False)
+        
+        
