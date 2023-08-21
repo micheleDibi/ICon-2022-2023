@@ -68,24 +68,29 @@ for index, row in df_albums.iterrows():
     prolog.assertz(f"album(\"{row['album_id']}\", \"{escape_string(row['album_name'])}\")")
     prolog.assertz(f"album(\"{row['album_id']}\", \"{row['album_release_date']}\")")
 
+# Regole in Prolog
+# Dato un artista di ottengono tutte le canzoni che ha fatto / Data una canzone di ottiene l'artista che l'ha fatta
+prolog.assertz("ha_composto_canzone(IdArtista,IdCanzone) :- appartiene_album(IdCanzone,IdAlbum), ha_composto_album(IdArtista,IdAlbum)")
 
-"""
-% Template Fatti
-% canzone("id", "nomeCanzone").
-% appartiene_album("idCanzone", "idAlbum").
-% artista("idArtista","nomeArtista")
-% genere_artista("idArtista", "generi").
-% popolarita("id", valore).
-% tonalita("id", valore).
-% bpm("id", valore).
-% energia("id", valore).
-% acustica("id", valore).
-% strumentalita("id", valore).
-% mode("id",valore).
-% tempo("id", valore).
-% valenza("id", valore).
+# Dato un album si ottengono tutti i suoi collaboratori / Dato un artista si ottengono tutti gli album in cui appare come collaboratore
+prolog.assertz("collaboratore_album(IdAlbum, IdArtista) :- collaboratore_canzone(IdCanzone, IdArtista), appartiene_album(IdCanzone, IdAlbum)")
+               # "ha_composto_album(IdArtistaTemp, IdAlbum), ",
+               # "IdArtista \== IdArtistaTemp"
 
-% album("idAlbum", "nomeAlbum").
-% ha_composto_album("idArtista", "idAlbum").
-% uscita_album("idAlbum", valore).
+prolog.assertz("hanno_collaborato_album(IdArtista1,IdArtista2,IdAlbum) :- IdArtista1 \== IdArtista2, collaboratore_album(IdAlbum, IdArtista2), ha_composto_album(IdAlbum, IdArtista1)")
 """
+prolog.assertz("hanno_collaborato_album(IdArtista1,IdArtista2,IdAlbum) :- ",
+               "IdArtista1 \== IdArtista2, ",
+               "collaboratori_album(IdAlbum, IdArtista1), ",
+               "ha_composto_album(IdAlbum, IdArtista2)")
+"""
+
+prolog.assertz("hanno_collaborato_canzone(IdArtista1, IdArtista2, IdCanzone) :- IdArtista1 \== IdArtista2, collaboratore_canzone(IdCanzone, IdArtista2), ha_composto_canzone(IdArtista1, IdCanzone)")
+prolog.assertz("hanno_collaborato_canzone(IdArtista1, IdArtita2, IdCanzone) :- IdArtista1 \== IdArtista2, collaboratore_canzone(IdCanzone, IdArtista1), collaboratore_canzone(IdCanzone, IdArtista2)")
+prolog.assertz("simile_struttura_musicale(IdCanzone1,IdCanzone2) :- IdCanzone1 \== IdCanzone2, tonalita(IdCanzone1, Tonalita), tonalita(IdCanzone2, Tonalita), tempo(IdCanzone1, Tempo), tempo(IdCanzone2, Tempo), bpm(IdCanzone1, Bpm1), bpm(IdCanzone2,Bpm2), abs(Bpm1 - Bpm2) =< 15")
+prolog.assertz("simili_per_emozioni(IdCanzone1, IdCanzone2) :- IdCanzone1 \== IdCanzone2, energia(IdCanzone1, Energia1), energia(IdCanzone2, Energia2), valenza(IdCanzone1, Valenza1), valenza(IdCanzone2, Valenza2), abs(Energia1 - Energia2) =< 20, abs(Valenza1,Valenza2) =< 0.3")
+prolog.assertz("stesso_artista(IdCanzone1,IdCanzone2) :- IdCanzone1 \== IdCanzone2, ha_composto_canzone(IdArtista, IdCanzone1), ha_composto_canzone(IdArtista, IdCanzone2)")
+prolog.assertz("stesso_album(IdCanzone1,IdCanzone2) :- IdCanzone1 \== IdCanzone2, appartiene_album(IdCanzone1,IdAlbum), appartiene_album(IdCanzone2, IdAlbum)")
+prolog.assertz("stesso_genere_artista(IdArtista1, IdArtista2) :- IdArtista1 \== IdArtista2, genere_artista(IdArtista1,Genere), genere_artista(IdArtista2,Genere)")
+prolog.assertz("collaborazione_successiva_album(IdArtista,IdAlbum,IdAlbum2) :- artista(IdArtista,NomeArtista), collaboratore_canzone(IdCanzone,Collaboratori), sub_atom(Collaboratori,_,_,_,NomeArtista), appartiene_album(IdCanzone,IdAlbum2), uscita_album(IdAlbum, DataUscita), uscita_album(IdAlbum2,DataUscita2), DataUscita < DataUscita2")
+prolog.assertz("collaborazione_precedente_album(IdArtista,IdAlbum,IdAlbum2) :- artista(IdArtista,NomeArtista), collaboratore_canzone(IdCanzone,Collaboratori), sub_atom(Collaboratori,_,_,_,NomeArtista), appartiene_album(IdCanzone,IdAlbum2), uscita_album(IdAlbum, DataUscita), uscita_album(IdAlbum2,DataUscita2), DataUscita > DataUscita2")

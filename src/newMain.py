@@ -5,7 +5,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 from os.path import exists
-from sklearn.cluster import DBSCAN, KMeans
+from sklearn.cluster import DBSCAN
 from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import MultiLabelBinarizer
 from mapping_genres import map_genre_to_macro_category
