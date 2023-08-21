@@ -114,3 +114,34 @@ prolog.assertz("stesso_album(IdCanzone1,IdCanzone2) :- IdCanzone1 \== IdCanzone2
 prolog.assertz("stesso_genere_artista(IdArtista1, IdArtista2) :- IdArtista1 \== IdArtista2, genere_artista(IdArtista1,Genere), genere_artista(IdArtista2,Genere)")
 prolog.assertz("collaborazione_successiva_album(IdArtista,IdAlbum,IdAlbum2) :- artista(IdArtista,NomeArtista), collaboratore_canzone(IdCanzone,Collaboratori), sub_atom(Collaboratori,_,_,_,NomeArtista), appartiene_album(IdCanzone,IdAlbum2), uscita_album(IdAlbum, DataUscita), uscita_album(IdAlbum2,DataUscita2), DataUscita < DataUscita2")
 prolog.assertz("collaborazione_precedente_album(IdArtista,IdAlbum,IdAlbum2) :- artista(IdArtista,NomeArtista), collaboratore_canzone(IdCanzone,Collaboratori), sub_atom(Collaboratori,_,_,_,NomeArtista), appartiene_album(IdCanzone,IdAlbum2), uscita_album(IdAlbum, DataUscita), uscita_album(IdAlbum2,DataUscita2), DataUscita > DataUscita2")
+
+def generi_preferiti(pathList):
+    generi = {}
+    weights = [0.2, 0.4, 1, 0.2, 0.4, 1]
+    
+    for path, weight in zip(pathList, weights):
+        print(path)
+        df = pd.read_csv(path)
+        
+        for index, row in df.iterrows():
+            query = ""
+            
+            if 'track' in path:
+                query = f"genere_artista(Artista_id, Genere), ha_composto_canzone(Artista_id, \"{row['id']}\")"
+            else :
+                query = f"genere_artista(\"{row['id']}\", Genere)"
+            
+            genres = list(prolog.query(query))
+            
+            for genre in genres:
+                if genre['Genere'].decode("ASCII") in generi:
+                    generi[f"{genre['Genere'].decode('ASCII')}"] += (1 * weight) + (1 - ((index + 1) / len(df)))
+                else:
+                    generi[f"{genre['Genere'].decode('ASCII')}"] = (1 * weight) + (1 - ((index + 1) / len(df)))
+            
+    
+    print(generi)
+    
+    return generi
+            
+generi_preferiti([path_track_short_term, path_track_mid_term, path_track_long_term, path_artist_short_term, path_artist_mid_term, path_artist_long_term])
