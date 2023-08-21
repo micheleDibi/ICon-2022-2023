@@ -80,6 +80,10 @@ for index, row in df_artists.iterrows():
     for genre in row['artist_genres']:
         prolog.assertz(f"genere_artista(\"{row['artist_id']}\", \"{genre}\")")
     
+df_artist_clustering = pd.read_csv(path_clustering)
+for index, row in df_artist_clustering.iterrows():
+    prolog.assertz(f"macro_categoria_artista(\"{row['artist_id']}\", \"{row['cluster']}\")")
+    
 multi_assertz([path_artist_short_term, path_artist_mid_term, path_artist_long_term], ["artista_ascoltato_freq_short", "artista_ascoltato_freq_mid", "artista_ascoltato_freq_long"])
 
 # Fatti per gli album
