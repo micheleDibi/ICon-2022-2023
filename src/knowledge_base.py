@@ -9,8 +9,25 @@ prolog.assertz("use_module(library(datetime))")
 def escape_string(string):
     return string.replace("\"", '_').replace("'", '_')
 
+def multi_assertz(pathList, assertzList):
+    for path, assertz in zip(pathList, assertzList):
+        df_temp = pd.read_csv(path)
+        for index, row in df_temp.iterrows():
+            prolog.assertz(f"{assertz}(\"{row['id']}\", {index+1})")
+
+path_brani_preferiti = "./datasets/brani_preferiti_2023-08-11.csv"
+path_artisti = "./datasets/artists_2023-08-11.csv"
+path_album = "./datasets/albums_2023-08-11.csv"
+path_artist_long_term = "./datasets/top_user_artists_long_term_2023-08-08.csv"
+path_artist_mid_term = "./datasets/top_user_artists_medium_term_2023-08-08.csv"
+path_artist_short_term = "./datasets/top_user_artists_short_term_2023-08-08.csv"
+path_track_long_term = "./datasets/top_user_track_long_term_2023-08-08.csv"
+path_track_mid_term = "./datasets/top_user_track_medium_term_2023-08-08.csv"
+path_track_short_term = "./datasets/top_user_track_short_term_2023-08-08.csv"
+path_clustering = "./datasets/clusteringDBSCAN.csv"
+
 # Fatti per i brani
-df_brani_preferiti = pd.read_csv("./datasets/brani_preferiti_2023-08-11.csv")
+df_brani_preferiti = pd.read_csv(path_brani_preferiti)
 df_brani_preferiti['side_artists_id'] = df_brani_preferiti['side_artists_id'].apply(ast.literal_eval)  
 check_duplicates = False
 for index, row in df_brani_preferiti.iterrows():
@@ -42,10 +59,11 @@ for index, row in df_brani_preferiti.iterrows():
     if not(check_artista_album):
         check_duplicates = True
         prolog.assertz(f"ha_composto_album(\"{row['main_artist_id']}\", \"{row['album_id']}\")")
-    
-    
+
+multi_assertz([path_track_short_term, path_track_mid_term, path_track_long_term], ["brano_ascoltato_freq_short", "brano_ascoltato_freq_mid", "brano_ascoltato_freq_long"])
+
 # Fatti per gli artisti
-df_artists = pd.read_csv("./datasets/artists_2023-08-11.csv")
+df_artists = pd.read_csv(path_artisti)
 df_artists['artist_genres'] = df_artists['artist_genres'].apply(ast.literal_eval)  
 
 for index, row in df_artists.iterrows():
@@ -62,8 +80,10 @@ for index, row in df_artists.iterrows():
     for genre in row['artist_genres']:
         prolog.assertz(f"genere_artista(\"{row['artist_id']}\", \"{genre}\")")
     
+multi_assertz([path_artist_short_term, path_artist_mid_term, path_artist_long_term], ["artista_ascoltato_freq_short", "artista_ascoltato_freq_mid", "artista_ascoltato_freq_long"])
+
 # Fatti per gli album
-df_albums = pd.read_csv("./datasets/albums_2023-08-11.csv")
+df_albums = pd.read_csv(path_album)
 for index, row in df_albums.iterrows():
     prolog.assertz(f"album(\"{row['album_id']}\", \"{escape_string(row['album_name'])}\")")
     prolog.assertz(f"album(\"{row['album_id']}\", \"{row['album_release_date']}\")")
@@ -74,9 +94,6 @@ prolog.assertz("ha_composto_canzone(IdArtista,IdCanzone) :- appartiene_album(IdC
 
 # Dato un album si ottengono tutti i suoi collaboratori / Dato un artista si ottengono tutti gli album in cui appare come collaboratore
 prolog.assertz("collaboratore_album(IdAlbum, IdArtista) :- collaboratore_canzone(IdCanzone, IdArtista), appartiene_album(IdCanzone, IdAlbum)")
-               # "ha_composto_album(IdArtistaTemp, IdAlbum), ",
-               # "IdArtista \== IdArtistaTemp"
-
 prolog.assertz("hanno_collaborato_album(IdArtista1,IdArtista2,IdAlbum) :- IdArtista1 \== IdArtista2, collaboratore_album(IdAlbum, IdArtista2), ha_composto_album(IdAlbum, IdArtista1)")
 """
 prolog.assertz("hanno_collaborato_album(IdArtista1,IdArtista2,IdAlbum) :- ",
@@ -84,7 +101,6 @@ prolog.assertz("hanno_collaborato_album(IdArtista1,IdArtista2,IdAlbum) :- ",
                "collaboratori_album(IdAlbum, IdArtista1), ",
                "ha_composto_album(IdAlbum, IdArtista2)")
 """
-
 prolog.assertz("hanno_collaborato_canzone(IdArtista1, IdArtista2, IdCanzone) :- IdArtista1 \== IdArtista2, collaboratore_canzone(IdCanzone, IdArtista2), ha_composto_canzone(IdArtista1, IdCanzone)")
 prolog.assertz("hanno_collaborato_canzone(IdArtista1, IdArtita2, IdCanzone) :- IdArtista1 \== IdArtista2, collaboratore_canzone(IdCanzone, IdArtista1), collaboratore_canzone(IdCanzone, IdArtista2)")
 prolog.assertz("simile_struttura_musicale(IdCanzone1,IdCanzone2) :- IdCanzone1 \== IdCanzone2, tonalita(IdCanzone1, Tonalita), tonalita(IdCanzone2, Tonalita), tempo(IdCanzone1, Tempo), tempo(IdCanzone2, Tempo), bpm(IdCanzone1, Bpm1), bpm(IdCanzone2,Bpm2), abs(Bpm1 - Bpm2) =< 15")
