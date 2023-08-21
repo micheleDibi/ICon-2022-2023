@@ -138,9 +138,6 @@ def generi_preferiti(pathList):
                     generi[f"{genre['Genere'].decode('ASCII')}"] += (1 * weight) + (1 - ((index + 1) / len(df)))
                 else:
                     generi[f"{genre['Genere'].decode('ASCII')}"] = (1 * weight) + (1 - ((index + 1) / len(df)))
-            
-    
-    print(generi)
     
     return generi
             
