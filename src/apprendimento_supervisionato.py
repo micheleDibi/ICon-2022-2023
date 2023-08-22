@@ -12,6 +12,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.ensemble import AdaBoostClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.neural_network import MLPClassifier
 
@@ -20,7 +21,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import cross_validate
 from sklearn.model_selection import GridSearchCV, StratifiedShuffleSplit, RandomizedSearchCV
-
 
 import warnings
 warnings.filterwarnings('ignore')
@@ -233,6 +233,18 @@ for n in range(1, 21):
     mean_validation_accuracy_scores.append(results["Mean Validation Accuracy"])
     
 plot_range_results("Numero alberi", "Scores", "Gradient Boosting Classifier", mean_training_accuracy_scores, mean_validation_accuracy_scores, range(1, 21))
+
+# Classificazione dataset con Ada Boost
+mean_training_accuracy_scores = []
+mean_validation_accuracy_scores = []
+for n in range(1, 21):
+    ada_boost = AdaBoostClassifier(n_estimators=n, learning_rate=1) 
+    
+    results = cross_validation(ada_boost, X, y, 5)
+    mean_training_accuracy_scores.append(results["Mean Training Accuracy"])
+    mean_validation_accuracy_scores.append(results["Mean Validation Accuracy"])
+    
+plot_range_results("Numero alberi", "Scores", "Ada Boost Classifier", mean_training_accuracy_scores, mean_validation_accuracy_scores, range(1, 21))
 
 # Classificazione dataset con Regressione logica e valutazione
 mean_training_accuracy_scores = []
