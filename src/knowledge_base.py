@@ -93,7 +93,7 @@ def KB():
     df_albums = pd.read_csv(path_album)
     for index, row in df_albums.iterrows():
         prolog.assertz(f"album(\"{row['album_id']}\", \"{escape_string(row['album_name'])}\")")
-        prolog.assertz(f"album(\"{row['album_id']}\", \"{row['album_release_date']}\")")
+        prolog.assertz(f"uscita_album(\"{row['album_id']}\", \"{row['album_release_date']}\")")
 
     # Regole in Prolog
     # Dato un artista di ottengono tutte le canzoni che ha fatto / Data una canzone di ottiene l'artista che l'ha fatta
