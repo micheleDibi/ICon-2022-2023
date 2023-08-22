@@ -1,6 +1,9 @@
+import pyswip
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+
+from knowledge_base import KB
 
 # Modelli
 from sklearn.tree import DecisionTreeClassifier
@@ -88,6 +91,63 @@ def plot_range_results(x_label, y_label, plot_title, train_data, val_data, range
     plt.grid(True)
     plt.show()
 
+prolog = KB()
+
+path_brani_preferiti = "./datasets/brani_preferiti_2023-08-11.csv"
+path_brani_scaricati = "./datasets/brani_scaricati_2023-08-11.csv"
+
+df_brani_preferiti = pd.read_csv(path_brani_preferiti)
+df_brani_scaricati = pd.read_csv(path_brani_scaricati)
+
+df_brani_preferiti['Liked'] = 1
+df_brani_scaricati['Liked'] = 0
+
+df_brani = pd.merge(df_brani_preferiti, df_brani_scaricati, how='outer')
+df_brani.to_csv("brani.csv")
+
+for index, row in df_brani.iterrows():
+    if bool(list(prolog.query(f"brano_ascoltato_freq(\"{row['track_id']}\")"))):
+        df_brani.at[index, 'brano_ascoltato_freq'] = 1
+    else: 
+        df_brani.at[index,'brano_ascoltato_freq'] = 0
+        
+    if bool(list(prolog.query(f"artista_ascoltato_freq(\"{row['main_artist_id']}\")"))):
+        df_brani.at[index,'artista_ascoltato_freq'] = 1
+    else: 
+        df_brani.at[index,'artista_ascoltato_freq'] = 0
+
+    if bool(list(prolog.query(f"artista_singolare_importante(\"{row['main_artist_id']}\")"))):
+        df_brani.at[index, 'artista_singolare_importante'] = 1
+    else:
+        df_brani.at[index, 'artista_singolare_importante'] = 0
+        
+    if bool(list(prolog.query(f"collaboratore_canzone(\"{row['track_id']}\", IdArtista), artista_ascoltato_freq(IdArtista)"))):
+        df_brani.at[index, 'coll_artista_asc_freq'] = 1
+    else:
+        df_brani.at[index, 'coll_artista_asc_freq'] = 0
+    
+    if bool(list(prolog.query(f"simile_struttura_musicale(\"{row['track_id']}\", Canzone), brano_ascoltato_freq(Canzone)"))):
+        df_brani.at[index, 'sim_struttura_musicale_brano_asc_freq'] = 1
+    else: 
+        df_brani.at[index, 'sim_struttura_musicale_brano_asc_freq'] = 0
+
+    if bool(list(prolog.query(f"simili_emozioni(\"{row['track_id']}\", Canzone), brano_ascoltato_freq(Canzone)"))):
+        df_brani.at[index, 'sim_emozioni_brano_asc_freq'] = 1
+    else: 
+        df_brani.at[index, 'sim_emozioni_brano_asc_freq'] = 0
+
+    if bool(list(prolog.query(f"macro_categoria_artista(\"{row['main_artist_id']}\", Categoria), macro_categoria_artista(Artista, Categoria), artista_ascoltato_freq(Artista)"))):
+        df_brani.at[index, 'macro_categoria_artista_asc_freq'] = 1
+    else: 
+        df_brani.at[index, 'macro_categoria_artista_asc_freq'] = 0
+        
+    if bool(list(prolog.query(f"genere_artista(\"{row['main_artist_id']}\", Genere), genere_ascoltato_freq(Genere, _)"))):
+        df_brani.at[index, 'genere_asc_freq'] = 1
+    else:
+        df_brani.at[index, 'genere_asc_freq'] = 0
+        
+df_brani.to_csv("brani.csv")
+        
 # Temp
 from sklearn.datasets import load_iris
 
