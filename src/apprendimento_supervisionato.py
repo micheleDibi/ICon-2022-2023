@@ -2,22 +2,29 @@ import pyswip
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from scipy.stats import uniform, randint
 
 from knowledge_base import KB
 
 # Modelli
+from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.neural_network import MLPClassifier
 
 # Valutazione
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import cross_validate
+from sklearn.model_selection import GridSearchCV, StratifiedShuffleSplit, RandomizedSearchCV
+
 
 import warnings
 warnings.filterwarnings('ignore')
+
 
 def cross_validation(model, _X, _y, _cv=5):
     _scoring = ['accuracy', 'precision', 'recall', 'f1']
@@ -227,4 +234,61 @@ for n in range(1, 21):
     
 plot_range_results("Numero alberi", "Scores", "Gradient Boosting Classifier", mean_training_accuracy_scores, mean_validation_accuracy_scores, range(1, 21))
 
+# Classificazione dataset con Regressione logica e valutazione
+mean_training_accuracy_scores = []
+mean_validation_accuracy_scores = []
+C_values = [0.001, 0.01, 0.1, 1, 10, 100]
+for C in C_values:
+    logistic_regression = LogisticRegression(C=C, random_state=0)
+    results = cross_validation(logistic_regression, X, y, 5)
+    mean_training_accuracy_scores.append(results["Mean Training Accuracy"])
+    mean_validation_accuracy_scores.append(results["Mean Validation Accuracy"])
+    
+plot_range_results("C", "Scores", "Logistic Regression Classifier", mean_training_accuracy_scores, mean_validation_accuracy_scores, C_values)
 
+# Classificazione dataset con SVM e valutazione
+C_range = np.logspace(-2, 10, 13)
+gamma_range = np.logspace(-9, 3, 13)
+param_grid = dict(gamma=gamma_range, C=C_range)
+cv = StratifiedShuffleSplit(n_splits=5, test_size=0.4, random_state=42)
+grid = GridSearchCV(SVC(), param_grid=param_grid, cv=cv)
+grid.fit(X, y)
+
+print("I parametri migliori sono %s con lo score di %0.2f" %(grid.best_params_, grid.best_score_))
+
+# Classificazione dataset con MLPClassifier e valutazione
+param_grid = {
+    'hidden_layer_sizes': [(50,), (100,), (50, 50)],
+    'activation': ['logistic', 'tanh', 'relu'],
+    'solver': ['adam', 'sgd'],
+    'alpha': [0.0001, 0.001, 0.01]
+}
+
+param_dist = {
+    'hidden_layer_sizes': [(50,), (100,), (50, 50)],
+    'activation': ['logistic', 'tanh', 'relu'],
+    'solver': ['adam', 'sgd'],
+    'alpha': uniform(0.0001, 0.01)
+}
+
+# Creazione del classificatore MLP
+clf = MLPClassifier(max_iter=10000, random_state=42)
+
+# Ricerca a griglia con cross-validation
+grid_search = GridSearchCV(clf, param_grid, cv=5, n_jobs=-1)
+grid_search.fit(X, y)
+
+# Ricerca casuale con cross-validation
+random_search = RandomizedSearchCV(clf, param_distributions=param_dist, n_iter=10, cv=5, n_jobs=-1, random_state=42)
+random_search.fit(X, y)
+
+# Parametri ottimali e risultati
+best_params = grid_search.best_params_
+best_score = grid_search.best_score_
+print("Ricerca a griglia - Best Parameters:", best_params)
+print("Ricerca a griglia - Best Cross-Validation Score:", best_score)
+
+best_params = random_search.best_params_
+best_score = random_search.best_score_
+print("Ricerca Casuale - Best Parameters:", best_params)
+print("Ricerca Casuale - Best Cross-Validation Score:", best_score)
