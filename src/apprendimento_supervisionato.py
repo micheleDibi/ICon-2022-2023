@@ -25,7 +25,6 @@ from sklearn.model_selection import GridSearchCV, StratifiedShuffleSplit, Random
 import warnings
 warnings.filterwarnings('ignore')
 
-
 def cross_validation(model, _X, _y, _cv=5):
     _scoring = ['accuracy', 'precision', 'recall', 'f1']
     results = cross_validate(estimator=model

@@ -165,6 +165,10 @@ Nello specifico, per il processo di apprendimento sono state impegnate le librer
 2. **Decision Tree Classifier**: Questo modello di apprendimento automatico sfrutta un albero decisionale per classificare i brani in base alle loro caratteristiche numeriche. È in grado di gestire efficacemente dati numerici e può essere particolarmente robusto anche in presenza di dati rumorosi.
 3. **Random Forest**: Questo algoritmo si basa su un insieme di alberi decisionali e sfrutta il principio dell'aggregazione per migliorare la precisione delle previsioni. È particolarmente adatto per gestire caratteristiche numeriche e può gestire grandi quantità di dati in modo efficiente.
 4. **Gradient Boosting Classifier**: Questo modello sfrutta una serie di alberi decisionali, ognuno dei quali cerca di correggere gli errori dei modelli precedenti. Attraverso iterazioni successive, il modello si adatta meglio ai dati di addestramento, fornendo previsioni più accurate.
+5. **Logistic Regression**: La Regressione Logistica è un algoritmo di classificazione che utilizza una funzione logistica per stimare la probabilità che un'istanza appartenga a una determinata classe. Nonostante il nome, è utilizzato per problemi di classificazione binaria e può essere esteso per affrontare problemi multiclasse. L'algoritmo cerca di trovare un iperpiano che meglio separa le diverse classi nello spazio delle caratteristiche.
+6. **Support Vector Machine (SVM)**: SVM è un algoritmo di apprendimento supervisionato che mira a trovare l'iperpiano ottimale che separa le diverse classi massimizzando il margine tra di esse. Può gestire sia problemi di classificazione che di regressione. Gli esempi di addestramento più vicini al margine di separazione sono chiamati "vettori di supporto". SVM può anche sfruttare il trucco del kernel per trasformare lo spazio delle caratteristiche, rendendolo adatto a problemi non linearmente separabili.
+7. **AdaBoost**: AdaBoost è un algoritmo di boosting che costruisce un modello forte combinando una serie di modelli deboli (spesso alberi decisionali). In ogni iterazione, l'algoritmo dà maggior peso agli esempi classificati erroneamente in precedenza, concentrandosi su di essi per costruire un modello successivo migliore. Alla fine, i modelli deboli vengono ponderati e combinati in un modello complessivo che ha dimostrato di avere buone prestazioni predittive.
+8. **Multi-Layer Percepton Classifier**: L'MLP Classifier è una rete neurale artificiale composta da uno o più strati di neuroni, ognuno dei quali è connesso a tutti i neuroni degli strati adiacenti. È un modello flessibile in grado di affrontare problemi di classificazione complessi. Gli strati intermedi, chiamati strati nascosti, consentono all'MLP di catturare rappresentazioni gerarchiche dei dati. L'addestramento avviene attraverso la retropropagazione dell'errore, in cui i pesi delle connessioni vengono aggiornati per ridurre l'errore di predizione.
 
 L'utilizzo di tali algoritmi consente di ottenere modelli predittivi robusti e in grado di elaborare le caratteristiche numeriche delle tracce musicali, contribuendo così alla creazione di playlist personalizzate che riflettano le preferenze dell'utente in modo accurato ed efficace. 
 
@@ -182,3 +186,82 @@ Il parametro k nel k-NN rappresenta il numero di vicini più prossimi considerat
 La valutazione delle prestazioni del classificatore è stata eseguita misurando le metriche di valutazione come l'accuratezza, la precisione, il recall e l'F1-score, al variare del parametro k. Ciò ha permesso di identificare il valore di k che produceva le prestazioni migliori per il problema specifico.
 
 In sintesi, il k-Nearest Neighbors è stato utilizzato per prevedere la feature target "PREFERITO" basandosi sulle caratteristiche numeriche e booleane dei profili dei brani musicali. Sono state eseguite valutazioni delle prestazioni al variare del parametro k per determinare il valore ottimale che massimizzasse le prestazioni del classificatore.
+
+## Decision Tree Classifier
+Per la valutazione degli alberi di decisione, è stata adottata una procedura di k-fold cross-validation con un valore di k pari a 5. Questo approccio permette di valutare le prestazioni del classificatore utilizzando diverse suddivisioni del set di dati di addestramento e di validazione, riducendo il rischio di ottenere valutazioni sbilanciate o influenzate dalla particolare divisione dei dati.
+
+Durante la fase di addestramento degli alberi di decisione, sono state considerate sempre le stesse caratteristiche per la previsione del target preferito. La scelta di utilizzare le stesse caratteristiche per tutti gli alberi consente di confrontare in modo equo le prestazioni dei modelli al variare di altri parametri, come ad esempio la profondità massima raggiunta dall'albero.
+
+La profondità massima dell'albero è un parametro chiave che influisce sulle prestazioni del modello. Durante la valutazione, sono state misurate le prestazioni del classificatore utilizzando diverse profondità, al fine di individuare il punto ottimale in cui il modello fornisce le migliori prestazioni.
+
+Per quanto riguarda il criterio di selezione utilizzato per la costruzione dell'albero, è stata scelta la misura di "entropy". L'entropy è una misura della disordine o dell'incertezza all'interno di un set di dati e rappresenta la quantità di informazione contenuta nei dati.
+
+Si precisa che non sono state riscontrate differenze significative in termini di prestazioni utilizzando "entropy" rispetto ad altre misure come "log_loss" o "gini". Questo suggerisce che i risultati ottenuti utilizzando l'entropy come criterio di selezione sono comparabili a quelli ottenuti con altre misure e che l'entropy rappresenta una scelta valida per la costruzione dell'albero di decisione in questo contesto.
+
+Complessivamente, l'approccio utilizzato per valutare gli alberi di decisione ha coinvolto l'addestramento di modelli con diverse profondità massime e l'utilizzo del criterio di selezione "entropy". La valutazione è stata effettuata mediante k-fold cross-validation con un valore di k pari a 5, al fine di ottenere una stima robusta delle prestazioni dei modelli.
+
+## Random Forest
+Per l'addestramento del modello di apprendimento automatico, è stato utilizzato l'algoritmo di Random Forest. Durante la fase di sperimentazione, è stata esaminata l'accuratezza del modello al variare del numero di alberi appresi e della profondità massima degli alberi, effettuando una valutazione mediante k-fold cross-validation con un valore di k pari a 5.
+
+Nel caso specifico, si è osservato che non vi è stata alcuna significativa variazione dell'accuratezza al variare del numero di alberi appresi, mantenendo una profondità massima di default pari a 5. Questo indica che l'aumento del numero di alberi non ha portato a un miglioramento sostanziale delle prestazioni del modello in termini di accuratezza.
+
+Tuttavia, si è rilevato che la valutazione del modello è stata più significativa al variare della profondità massima degli alberi, mantenendo il valore di default per il numero di alberi appresi. Questo significa che la modifica della profondità massima degli alberi ha avuto un impatto più significativo sull'accuratezza del modello rispetto al numero di alberi utilizzati.
+
+La profondità massima degli alberi rappresenta il numero massimo di divisioni o domande che l'algoritmo può fare durante la costruzione di ciascun albero. Aumentare la profondità massima può consentire al modello di catturare relazioni più complesse nei dati di addestramento, ma potrebbe anche aumentare il rischio di overfitting, in cui il modello si adatta troppo ai dati di addestramento e non generalizza bene sui dati di test. 
+
+In sintesi, nell'esperimento condotto con l'algoritmo Random Forest, si è rilevato che il numero di alberi appresi non ha avuto un impatto significativo sull'accuratezza del modello, mentre la variazione della profondità massima degli alberi ha avuto un effetto più rilevante. Queste osservazioni indicano l'importanza di valutare attentamente i parametri degli algoritmi di apprendimento automatico per ottenere i migliori risultati in termini di prestazioni del modello.
+
+## Gradient Boosting Classifier
+Anche in questo caso si è sperimento sulla base del numero di alberi utilizzati per l'apprendimento nel modello di boosting, effettuando la valutazione utilizzando in k-fold cross-validation.
+
+## Ada Boost
+Per affrontare il problema di prevedere la feature target "PREFERITO" utilizzando le caratteristiche dei profili dei brani musicali, è stato impiegato l'algoritmo AdaBoost, un metodo di apprendimento automatico che mira a costruire un modello di previsione potente combinando una serie di modelli più deboli.
+
+L'AdaBoost opera in più fasi iterative, in ognuna delle quali viene addestrato un modello debole, spesso costituito da un albero decisionale semplice. Inizialmente, ogni istanza di addestramento ha lo stesso peso nell'addestramento del modello. Dopo ogni iterazione, il peso delle istanze classificate erroneamente viene aumentato, in modo che il modello successivo dia maggiore importanza a quelle istanze che sono state previste erroneamente in passate iterazioni.
+
+Alla fine del processo di addestramento, i modelli deboli vengono combinati attribuendo pesi alle loro previsioni in base alle loro prestazioni. I modelli che si sono dimostrati migliori nel prevedere correttamente le istanze difficili (quindi quelle con errori precedenti più elevati) ricevono un peso maggiore.
+
+Durante la fase di previsione, il modello AdaBoost combina le previsioni dei modelli deboli ponderandole secondo i pesi assegnati. L'output complessivo rappresenta la previsione finale del modello AdaBoost per ciascuna istanza.
+
+Le prestazioni dell'algoritmo sono valutate utilizzando metriche di valutazione come l'accuratezza, la precisione, il recall e l'F1-score al variare del numero di alberl utilizzati e utilizzando la k-fold cross-validation con k pari a 5 per ottenere le metriche di valutazione. AdaBoost si adatta dinamicamente alle istanze più complesse nel processo di apprendimento, consentendo di gestire efficacemente anche dati rumorosi o complessi.
+
+In sintesi, AdaBoost è stato scelto per prevedere la feature target "PREFERITO" basandosi sulle caratteristiche numeriche e booleane dei profili dei brani musicali. Attraverso iterazioni successive, AdaBoost crea un modello complesso combinando modelli deboli, concentrandosi sulle istanze più difficili da classificare. Le valutazioni delle prestazioni del modello consentono di valutare l'efficacia delle sue previsioni rispetto ai risultati attesi.
+
+## Regressione Logica
+La Regressione Logistica è un approccio di classificazione che si basa sulla stima delle probabilità di appartenenza a una determinata classe. Nel contesto musicale, le caratteristiche numeriche e booleane dei profili dei brani musicali sono utilizzate per rappresentare ogni brano.
+
+Il processo di addestramento della Regressione Logistica coinvolge la creazione di un insieme di dati di addestramento contenente i profili dei brani musicali e le etichette corrispondenti "PREFERITO". Successivamente, l'algoritmo ricerca i pesi ottimali da assegnare a ciascuna caratteristica al fine di modellare al meglio la relazione tra le caratteristiche e la probabilità di appartenenza alla classe "PREFERITO".
+
+Durante la fase di previsione, per ogni brano nel set di dati di test, la Regressione Logistica calcola le probabilità stimare di appartenenza alla classe "PREFERITO" basandosi sulle sue caratteristiche. Tipicamente, si utilizza una soglia di probabilità per classificare ciascun brano come "PREFERITO" o "non PREFERITO".
+
+La performance dell'algoritmo è valutata utilizzando metriche come l'accuratezza, la precisione, il recall e l'F1-score al variare dell'iperparametro C (*inverse of regularization strength*) il quale controlla la forza della regolarizzazione. Valori più piccoli di C aumentano la regolarizzazione, mentre valori più grandi lo riducono. La regolarizzazione aiuta a prevenire l'overfitting. Le metriche sono state ottenute utilizzando la k-fold cross-validation con valore di k pari a 5.
+
+In sintesi, la Regressione Logistica è stata impiegata per prevedere la feature target "PREFERITO" attraverso l'analisi delle caratteristiche numeriche e booleane dei profili dei brani musicali. La fase di addestramento mira a determinare i pesi ottimali per le caratteristiche al fine di modellare al meglio la relazione con la classe target. Le prestazioni del modello sono valutate utilizzando diverse metriche per misurare la sua capacità di fare previsioni accurate.
+
+## SVM 
+E' stato utilizzato l'algoritmo di Support Vector Machine (SVM) per affrontare il problema di classificazione. L'SVM è un potente algoritmo di machine learning che mira a trovare l'iperpiano ottimale nello spazio delle caratteristiche per separare le diverse classi dei dati. In questo caso specifico, l'obiettivo è prevedere la feature target "PREFERITO" basandosi sulle caratteristiche numeriche e booleane dei profili dei brani musicali.
+
+Per l'ottimizzazione dei parametri dell'SVM, è stato utilizzato un processo di ricerca esaustiva dei parametri ottimali. L'intervallo dei possibili valori di C e gamma è stato definito attraverso la creazione di scale logaritmiche che coprono una vasta gamma di valori. Questa gamma di valori permette all'algoritmo di esplorare diverse combinazioni di parametri e selezionare quelli che massimizzano le prestazioni predittive.
+
+Il metodo di cross-validation StratifiedShuffleSplit è stato applicato per suddividere il dataset in cinque insiemi di addestramento e test mantenendo la distribuzione delle classi bilanciata. Questo è fondamentale per evitare la sovradeterminazione dei dati e ottenere stime accurate delle prestazioni dell'algoritmo.
+
+La GridSearchCV è stata utilizzata per eseguire una ricerca esaustiva su tutte le possibili combinazioni di parametri definiti nell'intervallo. Per ogni combinazione di parametri, l'SVM è stato addestrato e valutato utilizzando la cross-validation. Alla fine della ricerca, il modello SVM con i parametri che hanno prodotto le migliori prestazioni è stato selezionato come il modello ottimale.
+
+Nell'output del codice, vengono stampati i parametri ottimali trovati insieme al punteggio corrispondente. Questo punteggio rappresenta l'accuratezza media ottenuta durante la cross-validation utilizzando il modello SVM ottimale.
+
+In sintesi, l'algoritmo di Support Vector Machine (SVM) è stato utilizzato per prevedere la feature target "PREFERITO" basandosi sulle caratteristiche numeriche e booleane dei profili dei brani musicali. Attraverso una ricerca esaustiva dei parametri ottimali e l'uso della cross-validation, è stato selezionato il modello SVM con i parametri che hanno prodotto le migliori prestazioni in termini di accuratezza.
+
+## MLPClassifier
+E' stato impiegato l'algoritmo di classificazione Multi-Layer Perceptron (MLPClassifier) per risolvere un problema di classificazione. L'MLPClassifier è una rete neurale artificiale con strati multipli di neuroni che utilizza l'approccio di apprendimento profondo per modellare relazioni complesse tra le caratteristiche del dataset.
+
+Per ottimizzare le prestazioni dell'MLPClassifier, sono state definite diverse combinazioni di parametri. Questi parametri includono le dimensioni dei layer nascosti, la funzione di attivazione, l'ottimizzatore e il parametro di regolarizzazione alpha. Inoltre, è stata definita una versione con distribuzione casuale dei parametri.
+
+È stato creato un classificatore MLP (Multi-Layer Perceptron) con l'obiettivo di addestrare una rete neurale per la classificazione. Il numero massimo di iterazioni è stato impostato a 10000, e il seed random è stato fissato a 42 per garantire riproducibilità nei risultati.
+
+È stata effettuata una ricerca dei parametri ottimali utilizzando due approcci differenti: una ricerca a griglia (`GridSearchCV`) e una ricerca casuale (`RandomizedSearchCV`). Entrambi gli approcci utilizzano la cross-validation per valutare le prestazioni del modello.
+
+Nella ricerca a griglia, vengono valutate tutte le possibili combinazioni dei parametri. Nella ricerca casuale, invece, vengono eseguite 10 iterazioni con combinazioni casuali di parametri.
+
+Dopo le ricerche, vengono stampati i parametri ottimali e il punteggio di validazione incrociata migliore ottenuto da ciascuna ricerca.
+
+In sintesi, l'algoritmo MLPClassifier è stato impiegato per risolvere il problema di classificazione basato sulle caratteristiche dei dati. Sono state eseguite ricerche dei parametri ottimali sia attraverso una ricerca a griglia che una ricerca casuale, entrambe utilizzando la cross-validation. I parametri ottimali e i punteggi di validazione incrociata forniscono informazioni sulla configurazione dei parametri che massimizzano le prestazioni del modello MLPClassifier.
