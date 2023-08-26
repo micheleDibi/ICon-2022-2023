@@ -56,3 +56,39 @@ def pulisciTesto(input_string):
     pattern = r'\[.*?\]'  # Pattern per trovare le sottostringhe tra '[' e ']'
     input_string = re.sub(pattern, '', input_string)  # Sostituisci le sottostringhe con una stringa vuota
     return input_string
+
+def naiveBayesClassifier(dataframe):
+    X = dataframe['testo']
+    y = dataframe['Liked']
+
+    vectorizer = CountVectorizer()
+
+    X = vectorizer.fit_transform(X)
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+    model = BernoulliNB()
+    model.fit(X_train, y_train)
+
+    p_train = model.predict(X_train)
+    p_test = model.predict(X_test)
+
+    acc_train = accuracy_score(y_train, p_train)
+    acc_test = accuracy_score(y_test, p_test)
+    report = classification_report(y_test, p_test)
+
+    cm = confusion_matrix(y_test, p_test, labels=model.classes_)
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=model.classes_)
+    disp.plot()
+    plt.savefig('../img/NaiveBayesClassifierConfusionMatrix.png')
+
+    RocCurveDisplay.from_estimator(model, X_test, y_test)
+    plt.savefig('../img/NaiveBayesClassifierRocCurve.png')
+
+    PrecisionRecallDisplay.from_estimator(model, X_test, y_test)
+    plt.savefig('../img/NaiveBayesClassifierPrecisionRecallCurve.png')
+
+    learning_curve(model, X, y, scoring='accuracy')
+    plt.savefig('../img/NaiveBayesClassifierLearningCurve.png')
+
+    return acc_train, acc_test, report
