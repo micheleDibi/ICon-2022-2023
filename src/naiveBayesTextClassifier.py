@@ -20,3 +20,20 @@ genius_access_token = "dichmTVxVdSkWt18dizB-Tia_pfS5TQC93qht-dOXLssAo5t786eeqUWf
 client_id = "1572e8f11a55483ba6336cc98058160e"
 client_secret = "f6e304f95c1d41d1b3f9434437e88435"
 redirect_uri = "http://localhost:8888/callback"
+
+print("Autenticazione Spotify in corso...")
+
+auth_manager = SpotifyOAuth(client_id=client_id, client_secret=client_secret,
+                            redirect_uri=redirect_uri, scope='user-library-read')
+sp = spotipy.Spotify(auth_manager=auth_manager)
+
+print("Autenticazione Spotify eseguita con successo!")
+
+print("Autenticazione Genius in corso...")
+
+genius = lg.Genius(genius_access_token)
+genius.timeout = 15  # 15 va bene
+genius.sleep_time = 1
+np.random.seed(5)
+
+print("Autenticazione Genius eseguita con successo!")
