@@ -109,3 +109,14 @@ def recuperaTestiGenius(dataframe):
     dataframe['testo'] = testi
     dataframe.to_csv('../datasets/dfGenius.csv')
     return dataframe
+
+dfGeniusPath = "../datasets/dfGenius.csv"
+
+if os.path.exists(dfGeniusPath):
+    dfGenius = pd.read_csv(dfGeniusPath)
+else:
+    print("Dataframe dfGenius non trovato nella cartella datasets!.")
+    print("Creo dataframe dfGenius nella directory datasets")
+    print("Inizio download dei testi delle canzoni...")
+    dfGenius = recuperaTestiGenius(dfCombinati)
+    print("Fine download dei testi delle canzoni...")
