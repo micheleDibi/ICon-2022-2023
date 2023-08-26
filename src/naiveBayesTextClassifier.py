@@ -48,3 +48,11 @@ dfBraniPreferiti['Liked'] = 1
 dfBraniScaricati['Liked'] = 0
 
 dfCombinati = pd.merge(dfBraniPreferiti, dfBraniScaricati, how='outer')
+
+def pulisciTesto(input_string):
+    indiceTestoPulito = input_string.find('\n')
+    input_string = input_string[indiceTestoPulito + 1:]
+
+    pattern = r'\[.*?\]'  # Pattern per trovare le sottostringhe tra '[' e ']'
+    input_string = re.sub(pattern, '', input_string)  # Sostituisci le sottostringhe con una stringa vuota
+    return input_string
