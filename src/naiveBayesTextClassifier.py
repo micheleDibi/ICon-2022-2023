@@ -120,3 +120,9 @@ else:
     print("Inizio download dei testi delle canzoni...")
     dfGenius = recuperaTestiGenius(dfCombinati)
     print("Fine download dei testi delle canzoni...")
+
+acc_train, acc_test, report = naiveBayesClassifier(dfGenius)
+print("Naive Bayes Classifier")
+print(f"Training Accuracy: {acc_train}")
+print(f"Test Accuracy: {acc_test}")
+print(report)
