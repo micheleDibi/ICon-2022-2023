@@ -75,3 +75,20 @@ Una volta ottenuti i risultati, si procede alla ricerca della "miglior combinazi
 Trattandosi di caratteristiche booleane, non potevano aspettarci risutlati differenti. Infatti, per valori superiori a 0.9 di ε tendiamo ad avere un solo cluster. Scegliamo allora **n = 5** e **ε = 0.3** che ci restituiscono mediamente dei noise points più distanti.
 
 Nel contesto del DBSCAN, l'etichetta -1 è utilizzata per indicare punti che sono considerati rumore o outlier e che non sono stati assegnati a nessun cluster specifico. Questi punti non soddisfano i requisiti per essere classificati come core points o border points, quindi vengono considerati coem punti isolati o rumorosi. Questi punti potrebbero rappresentare anomalie o fluttuazioni casuali nei dati che non corrispondono a nessun cluster significativo. Quando si interpretano i risultati del clustering DBSCAN, è importante considerare sia i cluster etichettati positivamente che i punti etichettati con -1. Possono esserci situazioni in cui i punti rumorosi sono effettivamente importanti o rappresentano informazioni significative.
+# Apprendimento supervisionato - classificazione del testo delle tracce
+La classificazione dei testi delle canzoni in base alle preferenze degli utenti è un'applicazione rilevante nell'ambito dell'analisi dei dati e dell'apprendimento automatico. Nel nostro caso di studio abbiamo voluto implementare un algoritmo di apprendimento supervisionato basato sulla teoria della probabilità chiamato Bernoulli Naive Bayes. Bernoulli Naive Bayes utilizza il Teorema di Bayes per calcolare le probabilità di appartenenza di un'istanza a una determinata classe, dato il vettore delle feature binarie. Questo approccio è spesso utilizzato in problemi di classificazione di testi, come la categorizzazione di documenti in categorie specifiche, rilevazione di spam nelle email, analisi dei sentimenti nei testi e molto altro. Nel nostro caso di studio è stato utilizzato per categorizzare i testi delle canzoni di Spotify in due classi: 1 (Piace), 0 (Non piace).
+Per la raccolta dei testi è stata utilizzata l'API di Genius,  Genius è noto per ospitare testi di canzoni, annotazioni e informazioni correlate alle canzoni, inclusi dettagli sugli artisti e il loro significato.
+Nel dataset utilizzato in precedenza, è stata introdotta una nuova feature chiamata 'testo' dove è stato salvato il testo associato ad ogni canzone. Sono state rimosse dal dataset le canzoni prive di testo o per le quali non è stato possibile individuare il testo corrispondente.
+In seguito è stata utilizzata una classe all'interno della libreria 'scikit-learn' di nome 'CountVectorizer' per creare rappresentazioni "bag of words" (BoW) dai testi, dove ogni documento viene rappresentato come un vettore che conta quante volte ciascuna parola del vocabolario appare nel documento. Questa tecnica è ampiamente utilizzata in problemi di analisi testuale e linguistica. Infine il dataset è stato diviso in training set e test set ed è stato addestrato il modello. Sono riportati in seguito i risultati ottenuti dalle metriche utilizzate:
+
+![NBReport](./img/NaiveBayesClassifierReport.png)
+
+Dalla matrice di confusione notiamo che il modello ha previsto erroneamente 0 (Non piace) quando la classe reale era 1 (Piace), quindi falsi-negativi.
+![NBConfusionMatrix](./img/NaiveBayesClassifierConfusionMatrix.png)
+
+Dalla curva di apprendimento notiamo che al crescere dei dati di training e di test il modello migliora e notiamo infatti che i punteggi di train e test convergere
+![NBLearningCurve](./img/NaiveBayesClassifierLearningCurve.png)
+
+![NBRocCurve](./img/NaiveBayesClassifierRocCurve.png)
+
+![NBPRCurve](./img/NaiveBayesClassifierPrecisionRecallCurve.png)
