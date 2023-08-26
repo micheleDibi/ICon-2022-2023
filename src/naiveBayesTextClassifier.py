@@ -37,3 +37,14 @@ genius.sleep_time = 1
 np.random.seed(5)
 
 print("Autenticazione Genius eseguita con successo!")
+
+path_brani_preferiti = "../datasets/brani_preferiti_2023-08-11.csv"
+path_brani_scaricati = "../datasets/brani_scaricati_2023-08-11.csv"
+
+dfBraniPreferiti = pd.read_csv(path_brani_preferiti)
+dfBraniScaricati = pd.read_csv(path_brani_scaricati)
+
+dfBraniPreferiti['Liked'] = 1
+dfBraniScaricati['Liked'] = 0
+
+dfCombinati = pd.merge(dfBraniPreferiti, dfBraniScaricati, how='outer')
