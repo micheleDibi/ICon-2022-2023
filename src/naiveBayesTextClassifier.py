@@ -92,3 +92,20 @@ def naiveBayesClassifier(dataframe):
     plt.savefig('../img/NaiveBayesClassifierLearningCurve.png')
 
     return acc_train, acc_test, report
+
+def recuperaTestiGenius(dataframe):
+    testi = []
+    for index, row in dataframe.iterrows():
+     artista = sp.artist(row['main_artist_id'])
+     song = genius.search_song(title=row['track_name'], artist=artista['name'])
+     try:
+         lyrics = song.lyrics
+         lyrics = pulisciTesto(lyrics)
+         testi.append(lyrics)
+     except AttributeError:
+         print("Canzone non trovata! Elimino")
+         dataframe.drop(index, inplace=True)
+
+    dataframe['testo'] = testi
+    dataframe.to_csv('../datasets/dfGenius.csv')
+    return dataframe
