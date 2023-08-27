@@ -11,6 +11,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import BernoulliNB
 import lyricsgenius as lg
 from spotipy.oauth2 import SpotifyOAuth
+from wordcloud import WordCloud
 from yellowbrick.model_selection import learning_curve
 from stop_words import get_stop_words
 
@@ -91,6 +92,16 @@ def naiveBayesClassifier(dataframe):
 
     learning_curve(model, X, y, scoring='accuracy')
     plt.savefig('../img/NaiveBayesClassifierLearningCurve.png')
+
+    concatenated_string = dataframe['testo'].str.cat(sep='')
+
+    wordcloud = WordCloud(width=800, height=400, background_color='white').generate(concatenated_string)
+
+    # Mostra il WordCloud
+    plt.figure(figsize=(10, 5))
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis('off')
+    plt.savefig('../img/WordCloud.png')
 
     return acc_train, acc_test, report
 
