@@ -450,3 +450,5 @@ Attraverso queste metodologia di analisi dei dati, è stato possibile identifica
 L'elenco dei brani che vengono definiti come anomali viene salvato in un file denominato come *brani_preferiti_anomali.csv*.
 
 Il modo ottimale per valutare questo modello di apprendimento non supervisionato è probabilmente quello di effettuare una verifica manuale delle canzoni anomale. Ciò può essere fatto visionando il file e confrontando le canzoni identificate come "anomale" con le aspettative dell'utente. Questo approccio garantisce che i brani considerati "anomali" effettivamente si discostino dai modelli di ascolto tipici o presentino caratteritiche distintive rispetto alle altre canzoni.
+
+![Analisi-del-gomito](./img/Analisi_del_gomito.png)
