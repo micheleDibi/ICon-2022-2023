@@ -418,6 +418,18 @@ In sintesi, l'algoritmo MLPClassifier è stato impiegato per risolvere il proble
 
 In realtà, considerato il contesto dell'applicazione e considerato l'obbiettivo finale, la discrepanza è utile per avere una maggiore generalizzazione dei brani da consigliare all'utente.
 
+# Risoluzione di un CSP - creazione di una playlist
+L'obiettivo primario di ciascun classificatore supervisionato è stato individuare le tracce musicali che potrebbero maggiormente suscitare l'apprezzamento dell'utente. Una volta ottenuta una lista di brani selezionati dal classificatore, la sfida successiva è stata la creazione di playlist. Queste playlist sono state strutturate in modo da includere tracce che l'utente non ha ancora gradito, garantendo allo stesso tempo una diversificazione di generi musicali.
+
+Per conseguire tale scopo, l'approccio adottato ha trattato il problema come una questione di ottimizzazione dei vincoli, che includono:
+- L'inserimento di esattamente 10 brani per ciascuna playlist.
+- Il rispetto di un limite massimo di un'ora per la durata totale della playlist.
+- La limitazione di non oltrepassare due brani appartenenti allo stesso genere all'interno della stessa playlist.
+
+La risoluzione del problema legato ai vincoli è stata affrontata attraverso l'applicazione di un metodo algoritmico di **miglioramento iterativo**, basato sull'utilizzo del concetto di **random walk**. In questo processo, è stata adottata una funzione di valutazione finalizzata a minimizzare il numero di vincoli violati. L'iterazione è stata vincolata a un massimo di 1000 cicli, costituendo il criterio di arresto.
+
+Una volta ottenuta la playlist ottimizzata, quest'ultima è stata memorizzata all'interno del file denominato *playlist.csv*, garantendone la conservazione e la fruizione.
+
 # Apprendimento supervisionato - classificazione del testo delle tracce
 La classificazione dei testi delle canzoni in base alle preferenze degli utenti è un'applicazione rilevante nell'ambito dell'analisi dei dati e dell'apprendimento automatico. Nel nostro caso di studio abbiamo voluto implementare un algoritmo di apprendimento supervisionato basato sulla teoria della probabilità chiamato Bernoulli Naive Bayes. Bernoulli Naive Bayes utilizza il Teorema di Bayes per calcolare le probabilità di appartenenza di un'istanza a una determinata classe, dato il vettore delle feature binarie. Questo approccio è spesso utilizzato in problemi di classificazione di testi, come la categorizzazione di documenti in categorie specifiche, rilevazione di spam nelle email, analisi dei sentimenti nei testi e molto altro. Nel nostro caso di studio è stato utilizzato per categorizzare i testi delle canzoni di Spotify in due classi: 1 (Piace), 0 (Non piace).
 Per la raccolta dei testi è stata utilizzata l'API di Genius,  Genius è noto per ospitare testi di canzoni, annotazioni e informazioni correlate alle canzoni, inclusi dettagli sugli artisti e il loro significato.
