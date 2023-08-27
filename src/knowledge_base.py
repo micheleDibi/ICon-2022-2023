@@ -121,6 +121,8 @@ def KB():
     prolog.assertz("artista_ascoltato_freq(IdArtista) :- artista_ascoltato_freq_short(IdArtista, _); artista_ascoltato_freq_mid(IdArtista, _); artista_ascoltato_freq_long(IdArtista, _)")
     prolog.assertz("brano_ascoltato_freq(IdCanzone) :- brano_ascoltato_freq_short(IdCanzone, _); brano_ascoltato_freq_mid(IdCanzone, _); brano_ascoltato_freq_long(IdCanzone, _)")
     prolog.assertz("artista_singolare_importante(IdArtista) :- macro_categoria_artista(IdArtista, Categoria), popolarita_artista(IdArtista, Valore), Categoria = \"-1\", Valore > 70")
+    prolog.assertz("brano_freq_importante(IdCanzone) :- brano_ascoltato_freq_short(IdCanzone, _), brano_ascoltato_freq_mid(IdCanzone, _), brano_ascoltato_freq_long(IdCanzone, _)")
+    prolog.assertz("artista_freq_importante(IdArtista) :- artista_ascoltato_freq_short(IdArtista, _), artista_ascoltato_freq_mid(IdArtista, _), artista_ascoltato_freq_long(IdArtista, _)")
 
     generi = generi_preferiti()
     for genere, valore in generi.items():
