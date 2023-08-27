@@ -437,3 +437,16 @@ Dalla curva di apprendimento notiamo che al crescere dei dati di training e di t
 ![NBPRCurve](./img/NaiveBayesClassifierPrecisionRecallCurve.png)
 WordCloud dei testi delle canzoni:
 ![WordCloud](./img/WordCloud.png)
+
+# Apprendimento non supervisionato - Rilevamento dei brani anomali
+Una sezione del progetto è stata dedicata all'individuazione delle anomalie all'interno dei brani preferiti dell'utente. In particolare, si è focalizzata l'attenzione sui brani le cui caratteristiche si discostano in modo significativo dalle preferenze predomimani presenti nella collezione dei brani preferiti.
+
+Al fine di condurre un'analisi esplorativa dei dati, priva di un obbiettivo specifico di predizione, si è adottato un modello di apprendimento non supervisionato. Questo approccio consente di scoprire pattern e strutture nasconste all'interno dei dati, senza la necessità di un output predefinito.
+
+Dopo aver estratto le caratteristiche rilevanti per ciascun brano e averne ingegnerizzate nuove utilizzando Prolog, è stato impegato l'algoritmo K-Means per individuare i cluster dei brani. Questo algoritmo, basato sulla distanza tra le caratteristiche dei brani, ha consentito di raggruppare insieme brani simili e di identificare gruppi distinti all'interno della collezione di brani preferiti.
+
+Attraverso queste metodologia di analisi dei dati, è stato possibile identificare brani che si distingono in modo significati dal resto delle rpeferenze dell'utente, fornendo una prospettiva più approfondita sulla diversità e sulla varietà musicale presenti nella sua raccolta. In particolare, sono stati selezionati anomali quei brani che si discostano in modo particolare dal proprio cluster di appartenenza. 
+
+L'elenco dei brani che vengono definiti come anomali viene salvato in un file denominato come *brani_preferiti_anomali.csv*.
+
+Il modo ottimale per valutare questo modello di apprendimento non supervisionato è probabilmente quello di effettuare una verifica manuale delle canzoni anomale. Ciò può essere fatto visionando il file e confrontando le canzoni identificate come "anomale" con le aspettative dell'utente. Questo approccio garantisce che i brani considerati "anomali" effettivamente si discostino dai modelli di ascolto tipici o presentino caratteritiche distintive rispetto alle altre canzoni.
