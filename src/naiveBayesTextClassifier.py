@@ -12,6 +12,7 @@ from sklearn.naive_bayes import BernoulliNB
 import lyricsgenius as lg
 from spotipy.oauth2 import SpotifyOAuth
 from yellowbrick.model_selection import learning_curve
+from stop_words import get_stop_words
 
 genius_id = "Oejkq5pM7oYgIfKI5IidSAe1qqsVCgLZ8DR4O-B3hMd3p-QNahQF79_SeFNHs09M"
 genius_secret = "rWrWimfnUHCytx6e_xsEy_u6N2mBzpFp6vX-4ArQTp4Q5sUGKXNlnD2_kucXplneK5_-ozNiLjuinckCaNeBTg"
@@ -61,7 +62,7 @@ def naiveBayesClassifier(dataframe):
     X = dataframe['testo']
     y = dataframe['Liked']
 
-    vectorizer = CountVectorizer()
+    vectorizer = CountVectorizer(stop_words=get_stop_words('it') + get_stop_words('en'))
 
     X = vectorizer.fit_transform(X)
 
