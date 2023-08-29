@@ -76,16 +76,12 @@ Trattandosi di caratteristiche booleane, non potevano aspettarci risutlati diffe
 
 Nel contesto del DBSCAN, l'etichetta -1 è utilizzata per indicare punti che sono considerati rumore o outlier e che non sono stati assegnati a nessun cluster specifico. Questi punti non soddisfano i requisiti per essere classificati come core points o border points, quindi vengono considerati coem punti isolati o rumorosi. Questi punti potrebbero rappresentare anomalie o fluttuazioni casuali nei dati che non corrispondono a nessun cluster significativo. Quando si interpretano i risultati del clustering DBSCAN, è importante considerare sia i cluster etichettati positivamente che i punti etichettati con -1. Possono esserci situazioni in cui i punti rumorosi sono effettivamente importanti o rappresentano informazioni significative.
 
-=======
-
 # Creazione e Integrazione Knowledge Base
 
 Come detto precedentemente, è stata creata una base di conoscenza utilizzando il linguaggio di programmazione logica Prolog, ed interfacciandosi in Python ad essa mediante la libreria pyswip. Con la creazioen della base di conoscenza e popolamentod di questa tramite fatti provenienti direttamente dalla WEB API di Spotify, la Knowledge Base è stata sfruttata per ingegnerizzare caratteristiche per l'apprendimento supervisionato
 
 ## Fatti
 ### Fatti sui brani
-Sembra che tu stia cercando di descrivere una serie di fatti in Prolog che riguardano informazioni su canzoni, artisti e ascolti. Ecco una spiegazione e descrizione di ciascuno di questi fatti:
-
 1. `nome_canzone(IdCanzone, NomeCanzone)`: Questo fatto associa un nome a una canzone identificata da `IdCanzone`. Ad esempio, potrebbe essere `nome_canzone(1, "Bohemian Rhapsody")`.
 
 2. `popolarita(IdCanzone, Valore)`: Questo fatto rappresenta il livello di popolarità di una canzone identificata da `IdCanzone`. `Valore` è un valore numerico che indica la popolarità della canzone.
@@ -418,6 +414,18 @@ In sintesi, l'algoritmo MLPClassifier è stato impiegato per risolvere il proble
 
 In realtà, considerato il contesto dell'applicazione e considerato l'obbiettivo finale, la discrepanza è utile per avere una maggiore generalizzazione dei brani da consigliare all'utente.
 
+# Risoluzione di un CSP - creazione di una playlist
+L'obiettivo primario di ciascun classificatore supervisionato è stato individuare le tracce musicali che potrebbero maggiormente suscitare l'apprezzamento dell'utente. Una volta ottenuta una lista di brani selezionati dal classificatore, la sfida successiva è stata la creazione di playlist. Queste playlist sono state strutturate in modo da includere tracce che l'utente non ha ancora gradito, garantendo allo stesso tempo una diversificazione di generi musicali.
+
+Per conseguire tale scopo, l'approccio adottato ha trattato il problema come una questione di ottimizzazione dei vincoli, che includono:
+- L'inserimento di esattamente 10 brani per ciascuna playlist.
+- Il rispetto di un limite massimo di un'ora per la durata totale della playlist.
+- La limitazione di non oltrepassare due brani appartenenti allo stesso genere all'interno della stessa playlist.
+
+La risoluzione del problema legato ai vincoli è stata affrontata attraverso l'applicazione di un metodo algoritmico di **miglioramento iterativo**, basato sull'utilizzo del concetto di **random walk**. In questo processo, è stata adottata una funzione di valutazione finalizzata a minimizzare il numero di vincoli violati. L'iterazione è stata vincolata a un massimo di 1000 cicli, costituendo il criterio di arresto.
+
+Una volta ottenuta la playlist ottimizzata, quest'ultima è stata memorizzata all'interno del file denominato *playlist.csv*, garantendone la conservazione e la fruizione.
+
 # Apprendimento supervisionato - classificazione del testo delle tracce
 La classificazione dei testi delle canzoni in base alle preferenze degli utenti è un'applicazione rilevante nell'ambito dell'analisi dei dati e dell'apprendimento automatico. Nel nostro caso di studio abbiamo voluto implementare un algoritmo di apprendimento supervisionato basato sulla teoria della probabilità chiamato Bernoulli Naive Bayes. Bernoulli Naive Bayes utilizza il Teorema di Bayes per calcolare le probabilità di appartenenza di un'istanza a una determinata classe, dato il vettore delle feature binarie. Questo approccio è spesso utilizzato in problemi di classificazione di testi, come la categorizzazione di documenti in categorie specifiche, rilevazione di spam nelle email, analisi dei sentimenti nei testi e molto altro. Nel nostro caso di studio è stato utilizzato per categorizzare i testi delle canzoni di Spotify in due classi: 1 (Piace), 0 (Non piace).
 Per la raccolta dei testi è stata utilizzata l'API di Genius,  Genius è noto per ospitare testi di canzoni, annotazioni e informazioni correlate alle canzoni, inclusi dettagli sugli artisti e il loro significato.
@@ -437,3 +445,18 @@ Dalla curva di apprendimento notiamo che al crescere dei dati di training e di t
 ![NBPRCurve](./img/NaiveBayesClassifierPrecisionRecallCurve.png)
 WordCloud dei testi delle canzoni:
 ![WordCloud](./img/WordCloud.png)
+
+# Apprendimento non supervisionato - Rilevamento dei brani anomali
+Una sezione del progetto è stata dedicata all'individuazione delle anomalie all'interno dei brani preferiti dell'utente. In particolare, si è focalizzata l'attenzione sui brani le cui caratteristiche si discostano in modo significativo dalle preferenze predomimani presenti nella collezione dei brani preferiti.
+
+Al fine di condurre un'analisi esplorativa dei dati, priva di un obbiettivo specifico di predizione, si è adottato un modello di apprendimento non supervisionato. Questo approccio consente di scoprire pattern e strutture nasconste all'interno dei dati, senza la necessità di un output predefinito.
+
+Dopo aver estratto le caratteristiche rilevanti per ciascun brano e averne ingegnerizzate nuove utilizzando Prolog, è stato impegato l'algoritmo K-Means per individuare i cluster dei brani. Questo algoritmo, basato sulla distanza tra le caratteristiche dei brani, ha consentito di raggruppare insieme brani simili e di identificare gruppi distinti all'interno della collezione di brani preferiti.
+
+Attraverso queste metodologia di analisi dei dati, è stato possibile identificare brani che si distingono in modo significati dal resto delle rpeferenze dell'utente, fornendo una prospettiva più approfondita sulla diversità e sulla varietà musicale presenti nella sua raccolta. In particolare, sono stati selezionati anomali quei brani che si discostano in modo particolare dal proprio cluster di appartenenza. 
+
+L'elenco dei brani che vengono definiti come anomali viene salvato in un file denominato come *brani_preferiti_anomali.csv*.
+
+Il modo ottimale per valutare questo modello di apprendimento non supervisionato è probabilmente quello di effettuare una verifica manuale delle canzoni anomale. Ciò può essere fatto visionando il file e confrontando le canzoni identificate come "anomale" con le aspettative dell'utente. Questo approccio garantisce che i brani considerati "anomali" effettivamente si discostino dai modelli di ascolto tipici o presentino caratteritiche distintive rispetto alle altre canzoni.
+
+![Analisi-del-gomito](./img/Analisi_del_gomito.png)
