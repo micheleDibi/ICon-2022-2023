@@ -40,8 +40,8 @@ np.random.seed(5)
 
 print("Autenticazione Genius eseguita con successo!")
 
-path_brani_preferiti = "../datasets/brani_preferiti_2023-08-11.csv"
-path_brani_scaricati = "../datasets/brani_scaricati_2023-08-11.csv"
+path_brani_preferiti = "./datasets/brani_preferiti_2023-08-11.csv"
+path_brani_scaricati = "./datasets/brani_scaricati_2023-08-11.csv"
 
 dfBraniPreferiti = pd.read_csv(path_brani_preferiti)
 dfBraniScaricati = pd.read_csv(path_brani_scaricati)
@@ -82,16 +82,17 @@ def naiveBayesClassifier(dataframe):
     cm = confusion_matrix(y_test, p_test, labels=model.classes_)
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=model.classes_)
     disp.plot()
-    plt.savefig('../img/NaiveBayesClassifierConfusionMatrix.png')
+    plt.savefig('./img/NaiveBayesClassifierConfusionMatrix.png')
 
     RocCurveDisplay.from_estimator(model, X_test, y_test)
-    plt.savefig('../img/NaiveBayesClassifierRocCurve.png')
+    plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
+    plt.savefig('./img/NaiveBayesClassifierRocCurve.png')
 
     PrecisionRecallDisplay.from_estimator(model, X_test, y_test)
-    plt.savefig('../img/NaiveBayesClassifierPrecisionRecallCurve.png')
+    plt.savefig('./img/NaiveBayesClassifierPrecisionRecallCurve.png')
 
     learning_curve(model, X, y, scoring='accuracy')
-    plt.savefig('../img/NaiveBayesClassifierLearningCurve.png')
+    plt.savefig('./img/NaiveBayesClassifierLearningCurve.png')
 
     concatenated_string = dataframe['testo'].str.cat(sep='')
 
@@ -101,7 +102,7 @@ def naiveBayesClassifier(dataframe):
     plt.figure(figsize=(10, 5))
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis('off')
-    plt.savefig('../img/WordCloud.png')
+    plt.savefig('./img/WordCloud.png')
 
     return acc_train, acc_test, report
 
@@ -119,10 +120,10 @@ def recuperaTestiGenius(dataframe):
          dataframe.drop(index, inplace=True)
 
     dataframe['testo'] = testi
-    dataframe.to_csv('../datasets/dfGenius.csv')
+    dataframe.to_csv('./datasets/dfGenius.csv')
     return dataframe
 
-dfGeniusPath = "../datasets/dfGenius.csv"
+dfGeniusPath = "./datasets/dfGenius.csv"
 
 if os.path.exists(dfGeniusPath):
     dfGenius = pd.read_csv(dfGeniusPath)

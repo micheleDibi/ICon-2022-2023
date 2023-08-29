@@ -76,8 +76,6 @@ Trattandosi di caratteristiche booleane, non potevano aspettarci risutlati diffe
 
 Nel contesto del DBSCAN, l'etichetta -1 è utilizzata per indicare punti che sono considerati rumore o outlier e che non sono stati assegnati a nessun cluster specifico. Questi punti non soddisfano i requisiti per essere classificati come core points o border points, quindi vengono considerati coem punti isolati o rumorosi. Questi punti potrebbero rappresentare anomalie o fluttuazioni casuali nei dati che non corrispondono a nessun cluster significativo. Quando si interpretano i risultati del clustering DBSCAN, è importante considerare sia i cluster etichettati positivamente che i punti etichettati con -1. Possono esserci situazioni in cui i punti rumorosi sono effettivamente importanti o rappresentano informazioni significative.
 
-=======
-
 # Creazione e Integrazione Knowledge Base
 
 Come detto precedentemente, è stata creata una base di conoscenza utilizzando il linguaggio di programmazione logica Prolog, ed interfacciandosi in Python ad essa mediante la libreria pyswip. Con la creazioen della base di conoscenza e popolamentod di questa tramite fatti provenienti direttamente dalla WEB API di Spotify, la Knowledge Base è stata sfruttata per ingegnerizzare caratteristiche per l'apprendimento supervisionato
@@ -435,7 +433,7 @@ Nel dataset utilizzato in precedenza, è stata introdotta una nuova feature chia
 In seguito è stata utilizzata una classe all'interno della libreria 'scikit-learn' di nome 'CountVectorizer' per creare rappresentazioni "bag of words" (BoW) dai testi, dove ogni documento viene rappresentato come un vettore che conta quante volte ciascuna parola del vocabolario appare nel documento. Inoltre sono state eliminate le stopword sia della lingua italiana, che in lingua inglese. Questa tecnica è ampiamente utilizzata in problemi di analisi testuale e linguistica. Infine il dataset è stato diviso in training set e test set ed è stato addestrato il modello. Sono riportati in seguito i risultati ottenuti dalle metriche utilizzate:
 
 ![NBReport](./img/NaiveBayesClassifierReport.png)
-
+Notiamo che il richiamo per la classe 1 è molto bassa quindi ci sono tanti falsi-positivi.
 Dalla matrice di confusione notiamo che il modello ha previsto erroneamente 0 (Non piace) quando la classe reale era 1 (Piace), quindi falsi-negativi.
 ![NBConfusionMatrix](./img/NaiveBayesClassifierConfusionMatrix.png)
 
