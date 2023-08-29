@@ -425,7 +425,7 @@ Nel dataset utilizzato in precedenza, è stata introdotta una nuova feature chia
 In seguito è stata utilizzata una classe all'interno della libreria 'scikit-learn' di nome 'CountVectorizer' per creare rappresentazioni "bag of words" (BoW) dai testi, dove ogni documento viene rappresentato come un vettore che conta quante volte ciascuna parola del vocabolario appare nel documento. Inoltre sono state eliminate le stopword sia della lingua italiana, che in lingua inglese. Questa tecnica è ampiamente utilizzata in problemi di analisi testuale e linguistica. Infine il dataset è stato diviso in training set e test set ed è stato addestrato il modello. Sono riportati in seguito i risultati ottenuti dalle metriche utilizzate:
 
 ![NBReport](./img/NaiveBayesClassifierReport.png)
-
+Notiamo che il richiamo per la classe 1 è molto bassa quindi ci sono tanti falsi-positivi.
 Dalla matrice di confusione notiamo che il modello ha previsto erroneamente 0 (Non piace) quando la classe reale era 1 (Piace), quindi falsi-negativi.
 ![NBConfusionMatrix](./img/NaiveBayesClassifierConfusionMatrix.png)
 
