@@ -84,8 +84,6 @@ Come detto precedentemente, è stata creata una base di conoscenza utilizzando i
 
 ## Fatti
 ### Fatti sui brani
-Sembra che tu stia cercando di descrivere una serie di fatti in Prolog che riguardano informazioni su canzoni, artisti e ascolti. Ecco una spiegazione e descrizione di ciascuno di questi fatti:
-
 1. `nome_canzone(IdCanzone, NomeCanzone)`: Questo fatto associa un nome a una canzone identificata da `IdCanzone`. Ad esempio, potrebbe essere `nome_canzone(1, "Bohemian Rhapsody")`.
 
 2. `popolarita(IdCanzone, Valore)`: Questo fatto rappresenta il livello di popolarità di una canzone identificata da `IdCanzone`. `Valore` è un valore numerico che indica la popolarità della canzone.
