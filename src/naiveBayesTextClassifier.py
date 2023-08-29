@@ -85,6 +85,7 @@ def naiveBayesClassifier(dataframe):
     plt.savefig('./img/NaiveBayesClassifierConfusionMatrix.png')
 
     RocCurveDisplay.from_estimator(model, X_test, y_test)
+    plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
     plt.savefig('./img/NaiveBayesClassifierRocCurve.png')
 
     PrecisionRecallDisplay.from_estimator(model, X_test, y_test)
